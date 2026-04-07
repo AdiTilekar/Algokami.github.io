@@ -26,6 +26,6 @@ export const featuredWork: FeaturedWorkItem[] = [
     title: 'Sales Management Web Application',
     sector: 'E-Commerce Operations',
     url: 'https://aditilekar.github.io/Sales-web-application/',
-    summary: 'A sales operations dashboard for order tracking, customer handling, and day-to-day management for the same e-commerce client.',
+    summary: 'A sales operations dashboard for order tracking, customer handling, and day-to-day management of the sales for the  client.',
   },
 ]
