@@ -21,4 +21,11 @@ export const featuredWork: FeaturedWorkItem[] = [
     url: 'https://aditilekar.github.io/ShreeGaneshKulfi.github.io/',
     summary: 'A product-focused online ordering site for a kulfi brand built to showcase flavors, boost partner trust, and drive sales.',
   },
+  {
+    id: 3,
+    title: 'Sales Management Web Application',
+    sector: 'E-Commerce Operations',
+    url: 'https://aditilekar.github.io/Sales-web-application/',
+    summary: 'A sales operations dashboard for order tracking, customer handling, and day-to-day management for the same e-commerce client.',
+  },
 ]
