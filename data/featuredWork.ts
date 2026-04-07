@@ -14,4 +14,11 @@ export const featuredWork: FeaturedWorkItem[] = [
     url: 'https://kapures.com',
     summary: 'Professional clinic website focused on trust, treatment clarity, and mobile-first patient enquiries.',
   },
+  {
+    id: 2,
+    title: 'Shree Ganesh Kulfi E-Commerce Website',
+    sector: 'E-Commerce',
+    url: 'https://aditilekar.github.io/ShreeGaneshKulfi.github.io/',
+    summary: 'A product-focused online ordering site for a kulfi brand built to showcase flavors, boost partner trust, and drive sales.',
+  },
 ]
