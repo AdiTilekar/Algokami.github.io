@@ -45,7 +45,10 @@ export default function ContactSection() {
               <div className="contact-icon"><i className="fa-solid fa-phone" /></div>
               <div>
                 <strong>Phone</strong>
-                <span>+91-XXXXXXXXXX</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <a href="tel:7666809690">7666809690</a>
+                  <a href="tel:8857066841">8857066841</a>
+                </div>
               </div>
             </div>
             <div className="contact-item">

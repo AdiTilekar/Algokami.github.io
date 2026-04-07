@@ -53,9 +53,13 @@ export default function Footer() {
                 <i className="fa-solid fa-envelope" />
                 <span>contact@algokami.com</span>
               </a>
-              <a href="tel:+91XXXXXXXXXX" className="footer-contact-item">
+              <a href="tel:7666809690" className="footer-contact-item">
                 <i className="fa-solid fa-phone" />
-                <span>+91-XXXXXXXXXX</span>
+                <span>7666809690</span>
+              </a>
+              <a href="tel:8857066841" className="footer-contact-item">
+                <i className="fa-solid fa-phone" />
+                <span>8857066841</span>
               </a>
               <div className="footer-contact-item">
                 <i className="fa-solid fa-location-dot" />
