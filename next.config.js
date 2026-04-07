@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const isGithubPages = process.env.GITHUB_PAGES === 'true'
+const basePath = isGithubPages ? '/Algokami.github.io' : ''
 
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: isGithubPages,
+  basePath,
+  assetPrefix: basePath,
   output: isGithubPages ? 'export' : undefined,
 
   async redirects() {
