@@ -6,13 +6,20 @@ import type { ISourceOptions } from '@tsparticles/engine'
 
 export default function ParticlesBackground() {
   const [init, setInit] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    const updateViewport = () => setIsMobile(window.innerWidth <= 768)
+    updateViewport()
+    window.addEventListener('resize', updateViewport)
+
     initParticlesEngine(async (engine) => {
       await loadSlim(engine)
     }).then(() => {
       setInit(true)
     })
+
+    return () => window.removeEventListener('resize', updateViewport)
   }, [])
 
   const options: ISourceOptions = useMemo(
@@ -21,23 +28,23 @@ export default function ParticlesBackground() {
       background: { color: { value: 'transparent' } },
       fpsLimit: 60,
       particles: {
-        number: { value: 80, density: { enable: true } },
+        number: { value: isMobile ? 28 : 80, density: { enable: true } },
         color: { value: '#ffffff' },
         opacity: {
-          value: 0.35,
+          value: isMobile ? 0.22 : 0.35,
           animation: { enable: true, speed: 0.5, startValue: 'random', minimumValue: 0.1 },
         },
-        size: { value: { min: 1, max: 3 } },
+        size: { value: { min: 1, max: isMobile ? 2 : 3 } },
         links: {
           enable: true,
-          distance: 150,
+          distance: isMobile ? 110 : 150,
           color: '#ffffff',
-          opacity: 0.15,
+          opacity: isMobile ? 0.10 : 0.15,
           width: 1,
         },
         move: {
           enable: true,
-          speed: 1.2,
+          speed: isMobile ? 0.7 : 1.2,
           direction: 'none',
           random: true,
           straight: false,

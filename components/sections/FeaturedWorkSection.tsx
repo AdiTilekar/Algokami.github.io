@@ -28,7 +28,7 @@ export default function FeaturedWorkSection() {
                   rel="noopener noreferrer"
                   className="featured-work-link"
                 >
-                  Visit Website <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true" />
+                  View Project <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true" />
                 </a>
               </article>
             </FadeInView>

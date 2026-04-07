@@ -16,8 +16,8 @@ export default function HeroSection() {
 
       <div className="hero-content container">
         <FadeInView direction="left" className="hero-left">
-          <span className="badge">✦ Web Development Experts</span>
-          <h1 className="hero-title">Build Your Digital Future</h1>
+          <span className="badge hero-badge">✦ Mobile-first digital partner</span>
+          <h1 className="hero-title">Premium websites that turn mobile traffic into enquiries</h1>
           <p className="hero-subtitle">
             Expert Solutions for{' '}
             <TypewriterText
@@ -25,8 +25,8 @@ export default function HeroSection() {
             />
           </p>
           <p className="hero-description">
-            We build modern, scalable, and high-performance websites tailored to your industry.
-            Transform your business with Algokami Infotech Solutions.
+            We build fast, one-screen hero experiences, sharper service cards, and conversion paths
+            that feel premium on every phone.
           </p>
           <div className="hero-buttons">
             <Link href="/get-quote" className="btn btn-primary hero-cta">
@@ -37,43 +37,71 @@ export default function HeroSection() {
             </Link>
           </div>
 
-          <div className="hero-stats-card">
-            <div className="stats-info">
-              <CountUp target={5} suffix="+" className="stats-number" />
-              <span className="stats-label">Major Projects Delivered</span>
+          <div className="hero-proof-row" aria-label="Business highlights">
+            <div className="hero-proof-item">
+              <CountUp target={5} suffix="+" className="hero-proof-value" />
+              <span className="hero-proof-label">Major projects</span>
             </div>
-            <div className="stats-info">
-              <CountUp target={98} suffix="%" className="stats-number" />
-              <span className="stats-label">Client Satisfaction</span>
+            <div className="hero-proof-item">
+              <CountUp target={98} suffix="%" className="hero-proof-value" />
+              <span className="hero-proof-label">Client satisfaction</span>
             </div>
-            <div className="stats-info">
-              <CountUp target={2} suffix="+" className="stats-number" />
-              <span className="stats-label">Years of Experience</span>
+            <div className="hero-proof-item">
+              <CountUp target={2} suffix="+" className="hero-proof-value" />
+              <span className="hero-proof-label">Years experience</span>
             </div>
           </div>
         </FadeInView>
 
         <FadeInView direction="right" delay={0.2} className="hero-right">
-          <div className="hero-features">
-            <div className="hero-feature-card">
-              <i className="fa-solid fa-code" />
-              <h3>Custom Development</h3>
-              <p>Tailored solutions built from scratch</p>
+          <div className="hero-visual" aria-label="Mobile-first website preview">
+            <div className="hero-visual-glow hero-visual-glow-one" />
+            <div className="hero-visual-glow hero-visual-glow-two" />
+
+            <div className="hero-visual-chip-row">
+              <span className="hero-visual-chip">Mobile-first</span>
+              <span className="hero-visual-chip hero-visual-chip-alt">Premium UI</span>
             </div>
-            <div className="hero-feature-card">
-              <i className="fa-solid fa-mobile-screen" />
-              <h3>Responsive Design</h3>
-              <p>Perfect on all devices</p>
+
+            <div className="hero-visual-card hero-visual-main">
+              <span className="hero-visual-label">Featured build</span>
+              <h3>Clear, high-trust layouts that feel polished before the first scroll.</h3>
+              <p>
+                Built for fast decisions, stronger enquiries, and a premium first impression on
+                small screens.
+              </p>
+
+              <div className="hero-visual-metrics">
+                <div>
+                  <strong>5+</strong>
+                  <span>Live projects</span>
+                </div>
+                <div>
+                  <strong>2s</strong>
+                  <span>Quick scan</span>
+                </div>
+                <div>
+                  <strong>100%</strong>
+                  <span>Mobile focus</span>
+                </div>
+              </div>
             </div>
-            <div className="hero-feature-card">
-              <i className="fa-solid fa-bolt" />
-              <h3>Fast Performance</h3>
-              <p>Optimized for speed & SEO</p>
-            </div>
-            <div className="hero-feature-card">
-              <i className="fa-solid fa-shield-halved" />
-              <h3>Secure & Scalable</h3>
-              <p>Built for growth</p>
+
+            <div className="hero-visual-stack">
+              <div className="hero-visual-card hero-visual-mini">
+                <i className="fa-solid fa-suitcase-medical" aria-hidden="true" />
+                <div>
+                  <strong>Healthcare</strong>
+                  <span>Trust-led booking journeys</span>
+                </div>
+              </div>
+              <div className="hero-visual-card hero-visual-mini">
+                <i className="fa-solid fa-cart-shopping" aria-hidden="true" />
+                <div>
+                  <strong>E-Commerce</strong>
+                  <span>Sharper product discovery</span>
+                </div>
+              </div>
             </div>
           </div>
         </FadeInView>

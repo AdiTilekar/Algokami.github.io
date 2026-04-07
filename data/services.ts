@@ -6,7 +6,7 @@ export const services: Service[] = [
     title: 'Custom Web Development',
     icon: 'fa-code',
     iconTheme: 'blue',
-    description: 'We build modern, scalable, and high-performance websites tailored to your business needs using cutting-edge technologies.',
+    description: 'Fast, responsive websites tailored to your brand and built to convert mobile visitors.',
     link: '/services/healthcare',
   },
   {
@@ -14,7 +14,7 @@ export const services: Service[] = [
     title: 'Web Application Development',
     icon: 'fa-laptop-code',
     iconTheme: 'orange',
-    description: 'Full-stack web applications with robust backends, intuitive interfaces, and seamless user experiences.',
+    description: 'Modern web apps with smooth user flows, reliable performance, and clear interfaces.',
     link: '/services/finance',
   },
   {
@@ -22,7 +22,7 @@ export const services: Service[] = [
     title: 'E-Commerce Solutions',
     icon: 'fa-cart-shopping',
     iconTheme: 'blue',
-    description: 'Feature-rich online stores with secure payments, inventory management, and conversion-optimized designs.',
+    description: 'Online stores designed for product discovery, trust, and faster buying decisions.',
     link: '/services/ecommerce',
   },
   {
@@ -30,7 +30,7 @@ export const services: Service[] = [
     title: 'UI/UX Design',
     icon: 'fa-palette',
     iconTheme: 'orange',
-    description: 'Beautiful, intuitive designs that enhance user engagement and create memorable digital experiences.',
+    description: 'Clean, intuitive layouts that make key actions easier to spot and use.',
     link: '/#contact',
   },
 ]

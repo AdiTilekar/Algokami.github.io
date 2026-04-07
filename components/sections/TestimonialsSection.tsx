@@ -20,18 +20,23 @@ export default function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <FadeInView key={t.id} delay={i * 0.1}>
               <div className="testimonial-card">
-                <div className="quote-mark">&ldquo;</div>
-                <p className="review-text">{t.review}</p>
-                <div className="reviewer-row">
-                  <div className="reviewer-avatar-initials">
-                    {getInitials(t.name)}
+                <div className="testimonial-card-top">
+                  <div className="reviewer-row">
+                    <div className="reviewer-avatar-initials">
+                      {getInitials(t.name)}
+                    </div>
+                    <div>
+                      <strong className="reviewer-name">{t.name}</strong>
+                      <span className="reviewer-role">{t.role}</span>
+                    </div>
                   </div>
-                  <div>
-                    <strong className="reviewer-name">{t.name}</strong>
-                    <span className="reviewer-role">{t.role}</span>
+                  <div className="testimonial-rating" aria-label={`${t.rating} out of 5 stars`}>
+                    <span className="stars">{'★'.repeat(t.rating)}</span>
+                    <span className="rating-score">{t.rating}.0</span>
                   </div>
                 </div>
-                <div className="stars">{'★'.repeat(t.rating)}</div>
+                <div className="quote-mark">&ldquo;</div>
+                <p className="review-text">{t.review}</p>
               </div>
             </FadeInView>
           ))}

@@ -6,7 +6,7 @@ export const testimonials: Testimonial[] = [
     name: 'Ritesh Sahu',
     role: 'Business Owner',
     avatar: '/images/avatars/client-1.webp',
-    review: 'Highly satisfied with the web development services. Their expertise and innovative approach transformed our online presence. The team was professional and responsive throughout.',
+    review: 'Highly satisfied with the web development work. The team improved our online presence and stayed responsive throughout the project.',
     rating: 5,
   },
   {
@@ -14,7 +14,7 @@ export const testimonials: Testimonial[] = [
     name: 'Dipti Agrawal',
     role: 'Entrepreneur',
     avatar: '/images/avatars/client-2.webp',
-    review: 'Fantastic service! Their attention to detail and commitment to quality is unparalleled. Our website is now modern and user-friendly, helping increase our customer base significantly.',
+    review: 'Fantastic service. The website now feels modern, clear, and easy for customers to use.',
     rating: 5,
   },
   {
@@ -22,7 +22,7 @@ export const testimonials: Testimonial[] = [
     name: 'Anup Gaikwad',
     role: 'Startup Founder',
     avatar: '/images/avatars/client-3.webp',
-    review: 'Incredible experience. Their innovative design and efficient execution transformed our website, resulting in increased traffic and customer engagement beyond expectations.',
+    review: 'Great experience. Strong design choices and efficient execution gave our site a much better feel.',
     rating: 5,
   },
 ]
