@@ -9,10 +9,10 @@ export default function ServicesSection() {
         <FadeInView>
           <div className="section-header">
             <span className="section-label">Services</span>
-            <h2 className="section-title">Our Provided Services</h2>
+            <h2 className="section-title">Built-To-Scale Digital Services</h2>
             <p className="section-subtitle">
-              We ensure seamless user experience, high performance, and cutting-edge technology
-              to drive growth and engagement.
+              Full-cycle web and app development for businesses that want faster delivery,
+              better conversion, and dependable long-term growth.
             </p>
           </div>
         </FadeInView>

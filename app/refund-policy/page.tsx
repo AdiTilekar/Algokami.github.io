@@ -55,7 +55,7 @@ export default function RefundPolicyPage() {
 
             <h2>6. How to Request a Refund</h2>
             <p>
-              To request a refund, please contact us at contact@algokami.com with your project details and reason for the refund request. We will review your request and respond within 5 business days.
+              To request a refund, please contact us at algokamitech@gmail.com with your project details and reason for the refund request. We will review your request and respond within 5 business days.
             </p>
 
             <h2>7. Refund Processing</h2>
@@ -75,7 +75,7 @@ export default function RefundPolicyPage() {
 
             <h2>9. Contact Us</h2>
             <p>
-              If you have any questions about our refund policy, please contact us at contact@algokami.com.
+              If you have any questions about our refund policy, please contact us at algokamitech@gmail.com.
             </p>
           </div>
         </div>

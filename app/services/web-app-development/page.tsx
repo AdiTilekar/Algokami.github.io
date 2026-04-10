@@ -17,7 +17,7 @@ const capabilities = [
 
 export default function WebAppDevelopmentPage() {
 	return (
-		<main style={{ paddingTop: '70px' }}>
+		<main className="service-detail-main">
 			<section className="page-hero">
 				<div className="container">
 					<span className="section-label">Services</span>
@@ -30,7 +30,7 @@ export default function WebAppDevelopmentPage() {
 				</div>
 			</section>
 
-			<section style={{ padding: 'var(--section-padding)', background: 'var(--bg-light)' }}>
+			<section className="service-detail-section service-detail-section-alt">
 				<div className="container">
 					<FadeInView>
 						<div className="section-header">
@@ -52,6 +52,23 @@ export default function WebAppDevelopmentPage() {
 							</FadeInView>
 						))}
 					</div>
+				</div>
+			</section>
+
+			<section className="cta-banner-section">
+				<div className="container">
+					<FadeInView>
+						<h2>Ready To Build Your Next Web Application?</h2>
+						<p>Bring your idea to production with a team focused on performance, scale, and reliability.</p>
+						<div className="cta-buttons">
+							<Link href="/get-quote" className="btn btn-primary">
+								Get Free Quote <i className="fa-solid fa-arrow-right" />
+							</Link>
+							<Link href="/#contact" className="btn btn-outline-light">
+								Contact Us
+							</Link>
+						</div>
+					</FadeInView>
 				</div>
 			</section>
 		</main>

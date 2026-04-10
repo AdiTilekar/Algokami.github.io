@@ -17,7 +17,7 @@ const offerings = [
 
 export default function DigitalMarketingPage() {
 	return (
-		<main style={{ paddingTop: '70px' }}>
+		<main className="service-detail-main">
 			<section className="page-hero">
 				<div className="container">
 					<span className="section-label">Services</span>
@@ -30,7 +30,7 @@ export default function DigitalMarketingPage() {
 				</div>
 			</section>
 
-			<section style={{ padding: 'var(--section-padding)', background: 'var(--bg-light)' }}>
+			<section className="service-detail-section service-detail-section-alt">
 				<div className="container">
 					<FadeInView>
 						<div className="section-header">
@@ -52,6 +52,23 @@ export default function DigitalMarketingPage() {
 							</FadeInView>
 						))}
 					</div>
+				</div>
+			</section>
+
+			<section className="cta-banner-section">
+				<div className="container">
+					<FadeInView>
+						<h2>Ready To Scale Your Marketing Performance?</h2>
+						<p>Let&apos;s launch campaigns that turn traffic into qualified leads and revenue.</p>
+						<div className="cta-buttons">
+							<Link href="/get-quote" className="btn btn-primary">
+								Get Free Quote <i className="fa-solid fa-arrow-right" />
+							</Link>
+							<Link href="/#contact" className="btn btn-outline-light">
+								Contact Us
+							</Link>
+						</div>
+					</FadeInView>
 				</div>
 			</section>
 		</main>

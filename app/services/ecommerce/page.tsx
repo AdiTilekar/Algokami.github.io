@@ -18,7 +18,7 @@ const services = [
 
 export default function EcommercePage() {
   return (
-    <main style={{ paddingTop: '70px' }}>
+    <main className="service-detail-main">
       {/* Hero */}
       <section className="page-hero">
         <div className="container">
@@ -33,7 +33,7 @@ export default function EcommercePage() {
       </section>
 
       {/* Services Grid */}
-      <section style={{ padding: 'var(--section-padding)', background: 'var(--bg-light)' }}>
+      <section className="service-detail-section service-detail-section-alt">
         <div className="container">
           <FadeInView>
             <div className="section-header">
@@ -59,7 +59,7 @@ export default function EcommercePage() {
       </section>
 
       {/* Features */}
-      <section style={{ padding: 'var(--section-padding)', background: 'white' }}>
+      <section className="service-detail-section">
         <div className="container">
           <FadeInView>
             <div className="section-header">
@@ -68,7 +68,7 @@ export default function EcommercePage() {
             </div>
           </FadeInView>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
+          <div className="service-detail-feature-grid">
             {[
               { icon: 'fa-bolt', label: 'Fast Performance' },
               { icon: 'fa-mobile', label: 'Mobile Optimized' },
@@ -76,19 +76,11 @@ export default function EcommercePage() {
               { icon: 'fa-magnifying-glass', label: 'SEO Friendly' },
             ].map((feature, i) => (
               <FadeInView key={feature.label} delay={i * 0.1}>
-                <div style={{ textAlign: 'center', padding: '24px' }}>
-                  <div style={{ 
-                    width: '64px', height: '64px', 
-                    background: 'var(--bg-light)', 
-                    borderRadius: '50%',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    margin: '0 auto 16px',
-                    fontSize: '24px',
-                    color: 'var(--color-accent)'
-                  }}>
+                <div className="service-detail-feature-item">
+                  <div className="service-detail-feature-icon">
                     <i className={`fa-solid ${feature.icon}`} />
                   </div>
-                  <strong style={{ color: 'var(--color-primary)' }}>{feature.label}</strong>
+                  <strong>{feature.label}</strong>
                 </div>
               </FadeInView>
             ))}

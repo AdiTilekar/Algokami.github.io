@@ -7,27 +7,28 @@
 ═══════════════════════════════════ */
 :root {
   /* Brand Colors */
-  --color-primary:        #1A1F5E;
-  --color-primary-dark:   #0d1b4b;
-  --color-primary-light:  #2a3080;
-  --color-accent:         #F5A623;
-  --color-accent-dark:    #e09415;
-  --color-accent-light:   #ffc154;
+  --color-primary:        #0b1228;
+  --color-primary-dark:   #060c1f;
+  --color-primary-light:  #16244d;
+  --color-accent:         #1f8cff;
+  --color-accent-dark:    #0d72e2;
+  --color-accent-light:   #6eb6ff;
 
   /* Backgrounds */
   --bg-white:             #ffffff;
-  --bg-light:             #F7F8FC;
-  --bg-dark:              #0d1b4b;
+  --bg-light:             #f3f6ff;
+  --bg-dark:              #060c1f;
 
   /* Text */
-  --text-dark:            #1E1E2E;
-  --text-medium:          #374151;
-  --text-muted:           #6B7280;
+  --text-dark:            #131a30;
+  --text-medium:          #2d385b;
+  --text-muted:           #5f6a8e;
   --text-light:           rgba(255, 255, 255, 0.75);
   --text-white:           #ffffff;
 
   /* Typography */
-  --font-family:          var(--font-poppins), sans-serif;
+  --font-family:          var(--font-body), sans-serif;
+  --font-display:         var(--font-display), sans-serif;
   --font-size-hero:       clamp(2rem, 4vw, 3.2rem);
   --font-size-section:    clamp(1.8rem, 3vw, 2.5rem);
 
@@ -45,10 +46,10 @@
   --radius-full:          9999px;
 
   /* Shadows */
-  --shadow-sm:            0 2px 8px rgba(0,0,0,0.06);
-  --shadow-md:            0 4px 24px rgba(0,0,0,0.08);
-  --shadow-lg:            0 8px 40px rgba(0,0,0,0.12);
-  --shadow-hover:         0 12px 48px rgba(26,31,94,0.15);
+  --shadow-sm:            0 10px 20px rgba(7, 18, 46, 0.08);
+  --shadow-md:            0 18px 40px rgba(7, 18, 46, 0.10);
+  --shadow-lg:            0 28px 70px rgba(7, 18, 46, 0.14);
+  --shadow-hover:         0 26px 56px rgba(20, 55, 118, 0.22);
 
   /* Transitions */
   --transition-fast:      0.2s ease;
@@ -112,6 +113,7 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-f
 .section-title {
   font-size: var(--font-size-section);
   font-weight: 800;
+  font-family: var(--font-display);
   color: var(--color-primary);
   line-height: 1.2;
   margin-bottom: 16px;

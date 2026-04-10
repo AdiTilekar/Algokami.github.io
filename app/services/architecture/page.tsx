@@ -18,7 +18,7 @@ const features = [
 
 export default function ArchitecturePage() {
   return (
-    <main style={{ paddingTop: '70px' }}>
+    <main className="service-detail-main">
       <section className="page-hero">
         <div className="container">
           <span className="section-label">Web Development</span>
@@ -27,7 +27,7 @@ export default function ArchitecturePage() {
         </div>
       </section>
 
-      <section style={{ padding: 'var(--section-padding)', background: 'white' }}>
+      <section className="service-detail-section">
         <div className="container">
           <FadeInView>
             <div className="section-header">
@@ -36,7 +36,7 @@ export default function ArchitecturePage() {
             </div>
           </FadeInView>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+          <div className="service-detail-grid">
             {features.map((feature, idx) => (
               <FadeInView key={idx} delay={idx * 0.1}>
                 <div className="service-card">

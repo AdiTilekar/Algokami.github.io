@@ -65,7 +65,7 @@ export default function TermsConditionsPage() {
 
             <h2>9. Contact</h2>
             <p>
-              For questions about these Terms & Conditions, please contact us at contact@algokami.com.
+              For questions about these Terms & Conditions, please contact us at algokamitech@gmail.com.
             </p>
           </div>
         </div>

@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
 
             <h2>7. Contact Us</h2>
             <p>
-              If you have any questions about this Privacy Policy, please contact us at contact@algokami.com.
+              If you have any questions about this Privacy Policy, please contact us at algokamitech@gmail.com.
             </p>
           </div>
         </div>

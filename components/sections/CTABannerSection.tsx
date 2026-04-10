@@ -6,10 +6,10 @@ export default function CTABannerSection() {
     <section id="cta" className="cta-banner-section">
       <div className="container">
         <FadeInView>
-          <h2>Ready to Grow Your Business Online?</h2>
+          <h2>Ready to Launch Your Next Web Or App Product?</h2>
           <p>
-            Join 500+ satisfied clients who have transformed their digital presence with our
-            expert services. Let&apos;s build something great together.
+            Partner with a focused product team that plans, designs, and ships digital
+            experiences built for speed, trust, and measurable growth.
           </p>
           <div className="cta-buttons">
             <a

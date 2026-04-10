@@ -48,6 +48,7 @@ export default function ContactSection() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   <a href="tel:7666809690">7666809690</a>
                   <a href="tel:8857066841">8857066841</a>
+                  <a href="tel:+918208830644">+91 820 883 0644</a>
                 </div>
               </div>
             </div>
@@ -55,14 +56,7 @@ export default function ContactSection() {
               <div className="contact-icon"><i className="fa-solid fa-envelope" /></div>
               <div>
                 <strong>Email</strong>
-                <span>contact@algokami.com</span>
-              </div>
-            </div>
-            <div className="contact-item">
-              <div className="contact-icon"><i className="fa-solid fa-location-dot" /></div>
-              <div>
-                <strong>Address</strong>
-                <span>Your Street, City, State, India</span>
+                <span>algokamitech@gmail.com</span>
               </div>
             </div>
           </div>
