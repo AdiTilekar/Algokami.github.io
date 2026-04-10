@@ -14,7 +14,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://algokami.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://algokami.tech'),
   title: {
     template: '%s | Algokami Infotech Solutions',
     default: 'Algokami Infotech Solutions — Expert Web Development Company',
