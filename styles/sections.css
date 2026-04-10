@@ -28,6 +28,12 @@
   gap: 10px;
   text-decoration: none;
 }
+.brand-logo-image {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
 .logo-icon {
   width: 40px; height: 40px;
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
@@ -45,11 +51,46 @@
   font-family: var(--font-display);
   color: var(--color-primary);
 }
+.brand-lockup {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.brand-name {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1px;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.brand-algo {
+  color: #45385e;
+}
+.brand-kami {
+  color: #4a9af3;
+}
+.brand-subtitle {
+  margin-top: 2px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
 .footer .text-logo .logo-icon {
   background: var(--color-accent);
 }
 .footer .text-logo .logo-text {
   color: white;
+}
+.footer .brand-subtitle {
+  color: rgba(255, 255, 255, 0.72);
+}
+.footer .brand-logo-image {
+  width: 46px;
+  height: 46px;
 }
 .nav-menu { display: flex; align-items: center; gap: 8px; }
 .nav-link {
@@ -968,6 +1009,88 @@
   color: var(--color-primary);
 }
 
+.service-packages-section {
+  padding: var(--section-padding);
+  background: linear-gradient(180deg, #f2f6ff 0%, #ffffff 100%);
+}
+.service-packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.service-package-card {
+  position: relative;
+  height: 100%;
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  border: 1px solid rgba(19, 44, 102, 0.1);
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+.service-package-card.featured {
+  border-color: rgba(31, 140, 255, 0.4);
+  box-shadow: 0 18px 50px rgba(23, 87, 185, 0.2);
+}
+.service-package-badge {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: var(--color-accent);
+}
+.service-package-card h3 {
+  font-family: var(--font-display);
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+.service-package-price {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.service-package-timeline {
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.service-package-summary {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.service-package-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.service-package-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text-medium);
+  font-size: 0.9rem;
+}
+.service-package-list i {
+  color: var(--color-accent);
+  margin-top: 2px;
+}
+.service-package-cta {
+  width: 100%;
+  justify-content: center;
+}
+
 /* ═══════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════ */
@@ -979,6 +1102,7 @@
   .process-inner     { grid-template-columns: 1fr; gap: 48px; }
   .blog-grid         { grid-template-columns: repeat(2, 1fr); }
   .service-detail-feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-packages-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 768px) {
@@ -1003,6 +1127,15 @@
   .navbar-actions { display: none; }
   .navbar-container { height: 64px; }
   .logo-text { font-size: 19px; }
+  .brand-logo-image {
+    width: 34px;
+    height: 34px;
+  }
+  .brand-name { font-size: 1.25rem; }
+  .brand-subtitle {
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+  }
   .dropdown-menu {
     position: static;
     transform: none;
@@ -1039,6 +1172,8 @@
   .featured-work-grid { grid-template-columns: 1fr; }
   .blog-grid       { grid-template-columns: 1fr; }
   .service-detail-feature-grid { grid-template-columns: 1fr; }
+  .service-packages-grid { grid-template-columns: 1fr; }
+  .service-package-card { padding: 22px; }
   .contact-inner   { grid-template-columns: 1fr; }
   .form-row        { grid-template-columns: 1fr; }
   .contact-form-wrapper { padding: 24px; }

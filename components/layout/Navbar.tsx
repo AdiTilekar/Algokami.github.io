@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { navLinks } from '@/data/navLinks'
 import { usePathname } from 'next/navigation'
 
@@ -32,8 +33,21 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <Link href="/" className="navbar-logo text-logo">
-          <span className="logo-icon">A</span>
-          <span className="logo-text">Algokami</span>
+          <Image
+            src="/images/logos/Algo%20Kami%20logo.webp"
+            alt="AlgoKami logo"
+            width={42}
+            height={42}
+            className="brand-logo-image"
+            priority
+          />
+          <span className="brand-lockup">
+            <span className="brand-name">
+              <span className="brand-algo">Algo</span>
+              <span className="brand-kami">Kami</span>
+            </span>
+            <span className="brand-subtitle">Tech Solutions</span>
+          </span>
         </Link>
 
         <button

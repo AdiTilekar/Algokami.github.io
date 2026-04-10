@@ -43,8 +43,9 @@ export const metadata: Metadata = {
     images: ['/images/og-preview.jpg'],
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/images/apple-touch-icon.png',
+    icon: '/images/logos/Algo%20Kami%20favicon%201.webp',
+    shortcut: '/images/logos/Algo%20Kami%20favicon%201.webp',
+    apple: '/images/logos/Algo%20Kami%20favicon%201.webp',
   },
 }
 

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -10,8 +11,20 @@ export default function Footer() {
 
           <div className="footer-col footer-brand">
             <Link href="/" className="text-logo footer-logo">
-              <span className="logo-icon">A</span>
-              <span className="logo-text">Algokami</span>
+              <Image
+                src="/images/logos/Algo%20Kami%20logo.webp"
+                alt="AlgoKami logo"
+                width={46}
+                height={46}
+                className="brand-logo-image"
+              />
+              <span className="brand-lockup">
+                <span className="brand-name">
+                  <span className="brand-algo">Algo</span>
+                  <span className="brand-kami">Kami</span>
+                </span>
+                <span className="brand-subtitle">Tech Solutions</span>
+              </span>
             </Link>
             <p>Empowering businesses with modern web solutions for unprecedented growth and success in the digital world.</p>
             <div className="footer-brand-pills">
