@@ -20,28 +20,92 @@ const manrope = Manrope({
   display: 'swap',
 })
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://algokami.tech'),
-  title: {
-    template: '%s | Algokami Infotech Solutions',
-    default: 'Algokami Infotech Solutions — Expert Web Development Company',
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://algokami.tech'
+const siteName = 'Algokami Tech Solutions'
+const defaultDescription =
+  'Professional Web Development, App Development, E-Commerce solutions and Digital Marketing services. We build modern, scalable websites and applications for businesses.'
+const ogImage = '/images/og-preview.jpg'
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: siteName,
+  url: siteUrl,
+  logo: `${siteUrl}/images/logos/Algo%20Kami%20logo.webp`,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'algokamitech@gmail.com',
+    telephone: '+91-820-883-0644',
+    contactType: 'customer support',
+    areaServed: 'IN',
+    availableLanguage: ['en'],
   },
-  description: 'Professional Web Development, App Development, E-Commerce solutions and Digital Marketing services. We build modern, scalable websites and applications for businesses.',
-  keywords: ['web development', 'app development', 'website design', 'ecommerce', 'custom software', 'React', 'Next.js', 'Pune'],
-  authors: [{ name: 'Algokami Infotech Solutions Pvt. Ltd.' }],
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: siteName,
+  url: siteUrl,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteUrl}/blog?search={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  applicationName: siteName,
+  referrer: 'origin-when-cross-origin',
+  title: {
+    template: `%s | ${siteName}`,
+    default: `${siteName} — Web & App Development Company`,
+  },
+  description: defaultDescription,
+  keywords: [
+    'web development company',
+    'app development company',
+    'digital marketing agency',
+    'ecommerce website development',
+    'next.js development company',
+    'seo services',
+    'Pune web development',
+  ],
+  authors: [{ name: siteName }],
+  creator: siteName,
+  publisher: siteName,
+  category: 'technology',
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     type: 'website',
+    siteName,
+    locale: 'en_IN',
     url: '/',
-    title: 'Algokami Infotech Solutions — Expert Web Development Company',
-    description: 'Professional Web Development and App Development services.',
-    images: [{ url: '/images/og-preview.jpg', width: 1200, height: 630, alt: 'Algokami Infotech Solutions' }],
+    title: `${siteName} — Web & App Development Company`,
+    description: defaultDescription,
+    images: [{ url: ogImage, width: 1200, height: 630, alt: siteName }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Algokami Infotech Solutions',
-    description: 'Expert Web Development Services',
-    images: ['/images/og-preview.jpg'],
+    title: siteName,
+    description: defaultDescription,
+    images: [ogImage],
   },
+  manifest: '/manifest.webmanifest',
   icons: {
     icon: '/images/logos/Algo%20Kami%20favicon%201.webp',
     shortcut: '/images/logos/Algo%20Kami%20favicon%201.webp',
@@ -53,6 +117,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <Navbar />
         {children}
         <Footer />

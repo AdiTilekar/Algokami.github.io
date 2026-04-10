@@ -12,6 +12,23 @@ import CTABannerSection from '@/components/sections/CTABannerSection'
 
 export const metadata: Metadata = {
   title: 'Algokami Tech Solutions — Digital Marketing & Web Development Agency',
+  description:
+    'Grow your business with conversion-focused web development, custom web app engineering, and performance digital marketing services.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Algokami Tech Solutions — Digital Marketing & Web Development Agency',
+    description:
+      'Grow your business with conversion-focused web development, custom web app engineering, and performance digital marketing services.',
+    url: '/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Algokami Tech Solutions — Digital Marketing & Web Development Agency',
+    description:
+      'Grow your business with conversion-focused web development, custom web app engineering, and performance digital marketing services.',
+  },
 }
 
 export default function HomePage() {

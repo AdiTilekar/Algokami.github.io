@@ -108,13 +108,29 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const post = blogPosts.find(p => p.slug === params.slug)
   if (!post) return {}
+
+  const canonicalPath = `/blog/${post.slug}`
+
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: canonicalPath,
+    },
     openGraph: {
+      type: 'article',
+      url: canonicalPath,
       title: post.title,
       description: post.excerpt,
+      publishedTime: post.date,
+      authors: [post.author],
       images: [{ url: post.coverImage }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [post.coverImage],
     },
   }
 }
