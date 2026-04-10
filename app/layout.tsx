@@ -22,6 +22,7 @@ const manrope = Manrope({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://algokami.tech'
 const siteName = 'Algokami Tech Solutions'
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION
 const defaultDescription =
   'Professional Web Development, App Development, E-Commerce solutions and Digital Marketing services. We build modern, scalable websites and applications for businesses.'
 const ogImage = '/images/og-preview.jpg'
@@ -89,6 +90,9 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  verification: {
+    google: googleSiteVerification,
   },
   openGraph: {
     type: 'website',
