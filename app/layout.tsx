@@ -36,7 +36,7 @@ const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     email: 'algokamitech@gmail.com',
-    telephone: '+91-820-883-0644',
+    telephone: '+91-8857066841',
     contactType: 'customer support',
     areaServed: 'IN',
     availableLanguage: ['en'],

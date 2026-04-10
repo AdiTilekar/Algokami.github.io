@@ -91,7 +91,7 @@ export default function GetQuotePage() {
                     <input
                       type="tel" id="phone" name="phone"
                       value={form.phone} onChange={handleChange}
-                      placeholder="+91 98765 43210"
+                      placeholder="8857066841"
                     />
                   </div>
                   <div className="form-group">

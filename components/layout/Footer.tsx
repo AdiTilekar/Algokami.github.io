@@ -71,17 +71,9 @@ export default function Footer() {
                 <i className="fa-solid fa-envelope" />
                 <span>algokamitech@gmail.com</span>
               </a>
-              <a href="tel:7666809690" className="footer-contact-item">
-                <i className="fa-solid fa-phone" />
-                <span>7666809690</span>
-              </a>
               <a href="tel:8857066841" className="footer-contact-item">
                 <i className="fa-solid fa-phone" />
                 <span>8857066841</span>
-              </a>
-              <a href="tel:+918208830644" className="footer-contact-item">
-                <i className="fa-solid fa-phone" />
-                <span>+91 820 883 0644</span>
               </a>
             </div>
             <Link href="/get-quote" className="footer-cta-link">

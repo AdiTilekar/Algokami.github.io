@@ -46,9 +46,7 @@ export default function ContactSection() {
               <div>
                 <strong>Phone</strong>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <a href="tel:7666809690">7666809690</a>
                   <a href="tel:8857066841">8857066841</a>
-                  <a href="tel:+918208830644">+91 820 883 0644</a>
                 </div>
               </div>
             </div>
@@ -88,7 +86,7 @@ export default function ContactSection() {
                 <input
                   type="tel" id="phone" name="phone"
                   value={form.phone} onChange={handleChange}
-                  placeholder="+91 98765 43210"
+                  placeholder="8857066841"
                 />
               </div>
               <div className="form-group">
