@@ -28,19 +28,19 @@ const blogPosts = [
     author: 'Algokami Infotech',
   },
   {
-    slug: 'digital-marketing-guide',
-    title: 'The Complete Guide to Digital Marketing for Small Businesses',
-    excerpt: 'A comprehensive guide covering all aspects of digital marketing to help small businesses grow online.',
-    category: 'Marketing',
+    slug: 'personalized-website-development-guide',
+    title: 'Personalized Website Development: A Budget-Friendly Guide for Businesses',
+    excerpt: 'Learn how personalized website development helps businesses launch faster, convert better, and stay within budget.',
+    category: 'Web Development',
     date: '2025-02-10',
-    icon: 'fa-bullhorn',
+    icon: 'fa-code',
     author: 'Algokami Infotech',
   },
 ]
 
 export default function BlogPage() {
   return (
-    <main style={{ paddingTop: '70px' }}>
+    <main className="page-shell">
       {/* Hero */}
       <section className="page-hero">
         <div className="container">
@@ -53,7 +53,7 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Grid */}
-      <section style={{ padding: 'var(--section-padding)', background: 'var(--bg-light)' }}>
+      <section className="service-detail-section service-detail-section-alt">
         <div className="container">
           <div className="blog-grid">
             {blogPosts.map((post, i) => (
@@ -67,10 +67,10 @@ export default function BlogPage() {
                     <div className="blog-card-meta">
                       <span><i className="fa-regular fa-calendar" /> {formatDate(post.date)}</span>
                     </div>
-                    <h2 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-primary)', marginBottom: '10px', lineHeight: 1.4 }}>
+                    <h2 className="blog-card-title">
                       {post.title}
                     </h2>
-                    <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: 1.65, marginBottom: '16px' }}>
+                    <p className="blog-card-excerpt">
                       {post.excerpt}
                     </p>
                     <span className="blog-read-more">

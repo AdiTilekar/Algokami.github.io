@@ -65,34 +65,34 @@ const blogPosts = [
     `,
   },
   {
-    slug: 'digital-marketing-guide',
-    title: 'The Complete Guide to Digital Marketing for Small Businesses',
-    excerpt: 'A comprehensive guide covering all aspects of digital marketing to help small businesses grow online.',
-    category: 'Marketing',
+    slug: 'personalized-website-development-guide',
+    title: 'Personalized Website Development: A Budget-Friendly Guide for Businesses',
+    excerpt: 'Learn how personalized website development helps businesses launch faster, convert better, and stay within budget.',
+    category: 'Web Development',
     date: '2025-02-10',
     coverImage: '/images/blog/blog-3.webp',
     author: 'Algokami Infotech',
     content: `
       <h2>Introduction</h2>
-      <p>Digital marketing is essential for small businesses looking to grow in today's competitive landscape. This comprehensive guide will help you understand and implement effective digital marketing strategies.</p>
+      <p>Personalized website development helps small and growing businesses stand out online without overspending. A tailored website can improve trust, generate better leads, and support long-term growth.</p>
       
-      <h2>1. Building Your Online Presence</h2>
-      <p>Start with a professional website that clearly communicates your value proposition. Ensure it's mobile-friendly, fast, and easy to navigate. Your website is your digital storefront.</p>
+      <h2>1. Start With Business-Specific Planning</h2>
+      <p>Before design begins, define your audience, goals, and conversion actions. A personalized site should reflect your services, pricing model, and customer journey, not a generic template.</p>
       
-      <h2>2. Social Media Marketing</h2>
-      <p>Choose the right social platforms for your audience. Focus on building genuine connections rather than just broadcasting messages. Consistency and authenticity are key.</p>
+      <h2>2. Build a Conversion-Focused Structure</h2>
+      <p>Use clear section flow, strong calls to action, and trust elements like testimonials and project highlights. Visitors should quickly understand why they should choose your business.</p>
       
-      <h2>3. Email Marketing</h2>
-      <p>Build an email list and nurture relationships with regular, valuable content. Email remains one of the highest ROI marketing channels available.</p>
+      <h2>3. Keep Performance and Mobile First</h2>
+      <p>Your website must load quickly, work perfectly on mobile, and provide a smooth experience across devices. Better performance improves both user satisfaction and search visibility.</p>
       
-      <h2>4. Content Marketing</h2>
-      <p>Create valuable content that addresses your audience's needs and questions. Blog posts, videos, and guides establish your expertise and attract organic traffic.</p>
+      <h2>4. Personalize Content for Your Ideal Clients</h2>
+      <p>Write copy that addresses real client pain points and outcomes. Personalized messaging increases engagement and helps convert visitors into qualified inquiries.</p>
       
-      <h2>5. Measuring Success</h2>
-      <p>Track key metrics like website traffic, conversion rates, and customer acquisition costs. Use data to refine your strategies and improve results over time.</p>
+      <h2>5. Choose Budget-Friendly Scalability</h2>
+      <p>Pick technology that allows phased growth. Start with essential pages and features, then expand as your business scales to keep your development budget under control.</p>
       
       <h2>Conclusion</h2>
-      <p>Digital marketing success comes from consistent effort and continuous improvement. Start with the basics, measure your results, and adapt your strategies based on what works.</p>
+      <p>A personalized website is one of the best investments for business growth when built with the right strategy. The right web development partner helps you stay budget-friendly while delivering premium quality and results.</p>
     `,
   },
 ]
@@ -140,21 +140,21 @@ export default function BlogPostPage({ params }: Props) {
   if (!post) notFound()
 
   return (
-    <main style={{ paddingTop: '70px' }}>
-      <article style={{ maxWidth: '800px', margin: '0 auto', padding: '60px 5%' }}>
-        <Link href="/blog" className="service-link" style={{ marginBottom: '24px', display: 'inline-flex' }}>
+    <main className="page-shell">
+      <article className="blog-post-shell">
+        <Link href="/blog" className="service-link blog-back-link">
           <i className="fa-solid fa-arrow-left" /> Back to Blog
         </Link>
-        <span className="blog-category" style={{ position: 'static', marginBottom: '16px', display: 'inline-block' }}>
+        <span className="blog-category blog-category-static">
           {post.category}
         </span>
         <h1 className="section-title">{post.title}</h1>
-        <div className="blog-card-meta" style={{ margin: '16px 0 32px' }}>
+        <div className="blog-card-meta blog-post-meta">
           <span><i className="fa-regular fa-calendar" /> {formatDate(post.date)}</span>
           <span><i className="fa-regular fa-user" /> {post.author}</span>
         </div>
-        <div style={{ position: 'relative', height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: '40px' }}>
-          <Image src={post.coverImage} alt={post.title} fill style={{ objectFit: 'cover' }} />
+        <div className="blog-post-image-wrap">
+          <Image src={post.coverImage} alt={post.title} fill className="blog-post-image" />
         </div>
         <div className="prose" dangerouslySetInnerHTML={{ __html: post.content }} />
       </article>

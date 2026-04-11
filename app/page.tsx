@@ -11,23 +11,23 @@ import BlogSection from '@/components/sections/BlogSection'
 import CTABannerSection from '@/components/sections/CTABannerSection'
 
 export const metadata: Metadata = {
-  title: 'Algokami Tech Solutions — Digital Marketing & Web Development Agency',
+  title: 'Algokami Tech Solutions — Personalized Website Development Experts',
   description:
-    'Grow your business with conversion-focused web development, custom web app engineering, and performance digital marketing services.',
+    'Get personalized website development from budget-friendly web developers. We build fast, modern, conversion-focused websites tailored to your business goals.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Algokami Tech Solutions — Digital Marketing & Web Development Agency',
+    title: 'Algokami Tech Solutions — Personalized Website Development Experts',
     description:
-      'Grow your business with conversion-focused web development, custom web app engineering, and performance digital marketing services.',
+      'Get personalized website development from budget-friendly web developers. We build fast, modern, conversion-focused websites tailored to your business goals.',
     url: '/',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Algokami Tech Solutions — Digital Marketing & Web Development Agency',
+    title: 'Algokami Tech Solutions — Personalized Website Development Experts',
     description:
-      'Grow your business with conversion-focused web development, custom web app engineering, and performance digital marketing services.',
+      'Get personalized website development from budget-friendly web developers. We build fast, modern, conversion-focused websites tailored to your business goals.',
   },
 }
 

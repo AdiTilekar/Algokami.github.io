@@ -48,7 +48,7 @@ export default function GetQuotePage() {
   }
 
   return (
-    <main style={{ paddingTop: '70px' }}>
+    <main className="page-shell">
       {/* Hero */}
       <section className="page-hero">
         <div className="container">
@@ -61,8 +61,8 @@ export default function GetQuotePage() {
       </section>
 
       {/* Quote Form */}
-      <section style={{ padding: 'var(--section-padding)', background: 'var(--bg-light)' }}>
-        <div className="container" style={{ maxWidth: '700px' }}>
+      <section className="page-section-muted">
+        <div className="container page-form-container">
           <FadeInView>
             <div className="contact-form-wrapper">
               <form onSubmit={handleSubmit} noValidate>
@@ -115,7 +115,7 @@ export default function GetQuotePage() {
                       <option value="">Select a service</option>
                       <option value="web-development">Web Development</option>
                       <option value="app-development">App Development</option>
-                      <option value="digital-marketing">Digital Marketing</option>
+                      <option value="personalized-website-development">Personalized Website Development</option>
                       <option value="ecommerce">E-Commerce</option>
                       <option value="branding">Branding & PR</option>
                       <option value="other">Other</option>
@@ -148,8 +148,7 @@ export default function GetQuotePage() {
 
                 <button
                   type="submit"
-                  className="btn btn-primary"
-                  style={{ width: '100%', justifyContent: 'center' }}
+                  className="btn btn-primary quote-submit-btn"
                   disabled={status === 'loading'}
                 >
                   {status === 'loading' ? (

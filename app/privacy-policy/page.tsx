@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main style={{ paddingTop: '70px' }}>
+    <main className="page-shell">
       <section className="page-hero">
         <div className="container">
           <h1>Privacy Policy</h1>
@@ -15,8 +15,8 @@ export default function PrivacyPolicyPage() {
         </div>
       </section>
 
-      <section style={{ padding: 'var(--section-padding)', background: 'white' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
+      <section className="page-section-white">
+        <div className="container page-content-narrow">
           <div className="prose">
             <h2>1. Introduction</h2>
             <p>

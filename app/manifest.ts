@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'Algokami Tech Solutions',
     short_name: 'AlgoKami',
     description:
-      'Web and app development, ecommerce solutions, and digital marketing services for growth-focused businesses.',
+      'Personalized and budget-friendly website development for startups, local businesses, and growing brands.',
     start_url: '/',
     display: 'standalone',
     background_color: '#0B1228',

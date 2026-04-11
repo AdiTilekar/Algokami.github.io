@@ -24,7 +24,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://algokami.tech'
 const siteName = 'Algokami Tech Solutions'
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION
 const defaultDescription =
-  'Professional Web Development, App Development, E-Commerce solutions and Digital Marketing services. We build modern, scalable websites and applications for businesses.'
+  'Budget-friendly website development company specializing in personalized website development, business websites, and custom web solutions that convert.'
 const ogImage = '/images/og-preview.jpg'
 
 const organizationSchema = {
@@ -61,17 +61,18 @@ export const metadata: Metadata = {
   referrer: 'origin-when-cross-origin',
   title: {
     template: `%s | ${siteName}`,
-    default: `${siteName} — Web & App Development Company`,
+    default: `${siteName} — Personalized Website Development Company`,
   },
   description: defaultDescription,
   keywords: [
     'web development company',
-    'app development company',
-    'digital marketing agency',
+    'personalized website development',
+    'custom website development',
+    'budget website development',
+    'affordable web developers',
+    'business website development',
     'ecommerce website development',
-    'next.js development company',
-    'seo services',
-    'Pune web development',
+    'Pune website developers',
   ],
   authors: [{ name: siteName }],
   creator: siteName,
@@ -99,7 +100,7 @@ export const metadata: Metadata = {
     siteName,
     locale: 'en_IN',
     url: '/',
-    title: `${siteName} — Web & App Development Company`,
+    title: `${siteName} — Personalized Website Development Company`,
     description: defaultDescription,
     images: [{ url: ogImage, width: 1200, height: 630, alt: siteName }],
   },

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main style={{ paddingTop: '70px' }}>
+    <main className="page-shell">
       {/* Hero */}
       <section className="page-hero">
         <div className="container">
@@ -23,13 +23,13 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section style={{ padding: 'var(--section-padding)', background: 'white' }}>
+      <section className="service-detail-section">
         <div className="container">
           <FadeInView>
-            <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+            <div className="page-content-narrow page-center">
               <span className="section-label">Our Mission</span>
               <h2 className="section-title">Empowering Brands Through Digital Excellence</h2>
-              <p className="section-subtitle" style={{ margin: '0 auto' }}>
+              <p className="section-subtitle page-subtitle-center">
                 At Algokami Infotech Solutions, we believe every business deserves a powerful digital presence.
                 Our mission is to transform ideas into impactful digital experiences that drive growth,
                 engagement, and success.
@@ -38,21 +38,21 @@ export default function AboutPage() {
           </FadeInView>
 
           <FadeInView delay={0.2}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px', marginTop: '60px' }}>
-              <div style={{ textAlign: 'center', padding: '32px' }}>
-                <div style={{ fontSize: '48px', color: 'var(--color-accent)', marginBottom: '16px' }}>500+</div>
-                <strong style={{ display: 'block', color: 'var(--color-primary)', marginBottom: '8px' }}>Happy Clients</strong>
-                <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Trusted by businesses worldwide</p>
+            <div className="stats-grid page-section-gap">
+              <div className="stats-card">
+                <div className="stats-value">500+</div>
+                <strong>Happy Clients</strong>
+                <p>Trusted by businesses worldwide</p>
               </div>
-              <div style={{ textAlign: 'center', padding: '32px' }}>
-                <div style={{ fontSize: '48px', color: 'var(--color-accent)', marginBottom: '16px' }}>5+</div>
-                <strong style={{ display: 'block', color: 'var(--color-primary)', marginBottom: '8px' }}>Years Experience</strong>
-                <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Industry expertise you can rely on</p>
+              <div className="stats-card">
+                <div className="stats-value">5+</div>
+                <strong>Years Experience</strong>
+                <p>Industry expertise you can rely on</p>
               </div>
-              <div style={{ textAlign: 'center', padding: '32px' }}>
-                <div style={{ fontSize: '48px', color: 'var(--color-accent)', marginBottom: '16px' }}>50+</div>
-                <strong style={{ display: 'block', color: 'var(--color-primary)', marginBottom: '8px' }}>Team Members</strong>
-                <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Skilled professionals at your service</p>
+              <div className="stats-card">
+                <div className="stats-value">50+</div>
+                <strong>Team Members</strong>
+                <p>Skilled professionals at your service</p>
               </div>
             </div>
           </FadeInView>
@@ -60,7 +60,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section style={{ padding: 'var(--section-padding)', background: 'var(--bg-light)' }}>
+      <section className="service-detail-section service-detail-section-alt">
         <div className="container">
           <FadeInView>
             <div className="section-header">
@@ -69,7 +69,7 @@ export default function AboutPage() {
             </div>
           </FadeInView>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '28px' }}>
+          <div className="value-grid">
             <FadeInView delay={0.1}>
               <div className="service-card">
                 <div className="service-icon icon-blue">

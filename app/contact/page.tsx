@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main style={{ paddingTop: '70px' }}>
+    <main className="page-shell">
       {/* Hero */}
       <section className="page-hero">
         <div className="container">
@@ -25,9 +25,9 @@ export default function ContactPage() {
       <ContactSection />
 
       {/* Map placeholder */}
-      <section style={{ height: '400px', background: 'var(--bg-light)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
-          <i className="fa-solid fa-map-location-dot" style={{ fontSize: '48px', marginBottom: '16px', color: 'var(--color-accent)' }} />
+      <section className="contact-map-placeholder">
+        <div className="contact-map-message">
+          <i className="fa-solid fa-map-location-dot contact-map-icon" />
           <p>Google Maps embed would go here</p>
         </div>
       </section>

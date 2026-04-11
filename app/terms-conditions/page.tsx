@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function TermsConditionsPage() {
   return (
-    <main style={{ paddingTop: '70px' }}>
+    <main className="page-shell">
       <section className="page-hero">
         <div className="container">
           <h1>Terms & Conditions</h1>
@@ -15,8 +15,8 @@ export default function TermsConditionsPage() {
         </div>
       </section>
 
-      <section style={{ padding: 'var(--section-padding)', background: 'white' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
+      <section className="page-section-white">
+        <div className="container page-content-narrow">
           <div className="prose">
             <h2>1. Agreement to Terms</h2>
             <p>
@@ -25,7 +25,7 @@ export default function TermsConditionsPage() {
 
             <h2>2. Services</h2>
             <p>
-              Algokami Infotech Solutions Pvt. Ltd. provides web development, app development, e-commerce solutions, digital marketing, and related services. The specific scope of services will be outlined in individual project agreements.
+              Algokami Infotech Solutions Pvt. Ltd. provides website development, personalized website development, e-commerce solutions, and related web services. The specific scope of services will be outlined in individual project agreements.
             </p>
 
             <h2>3. Intellectual Property</h2>

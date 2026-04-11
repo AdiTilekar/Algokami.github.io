@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function RefundPolicyPage() {
   return (
-    <main style={{ paddingTop: '70px' }}>
+    <main className="page-shell">
       <section className="page-hero">
         <div className="container">
           <h1>Refund Policy</h1>
@@ -15,8 +15,8 @@ export default function RefundPolicyPage() {
         </div>
       </section>
 
-      <section style={{ padding: 'var(--section-padding)', background: 'white' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
+      <section className="page-section-white">
+        <div className="container page-content-narrow">
           <div className="prose">
             <h2>1. Overview</h2>
             <p>
@@ -44,9 +44,9 @@ export default function RefundPolicyPage() {
               Once a project has been completed and delivered, no refunds will be issued. However, we offer a warranty period during which we will address any bugs or issues at no additional cost.
             </p>
 
-            <h2>5. Digital Marketing Services</h2>
+            <h2>5. Website Maintenance Services</h2>
             <p>
-              For ongoing digital marketing services:
+              For ongoing website maintenance and support services:
             </p>
             <ul>
               <li>Monthly services can be cancelled with 30 days notice</li>
