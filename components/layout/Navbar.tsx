@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { navLinks } from '@/data/navLinks'
@@ -9,6 +9,7 @@ export default function Navbar() {
   const [scrolled, setScrolled]     = useState(false)
   const [menuOpen, setMenuOpen]     = useState(false)
   const [dropdownOpen, setDropdown] = useState(false)
+  const navRef = useRef<HTMLElement | null>(null)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -19,8 +20,32 @@ export default function Navbar() {
 
   useEffect(() => {
     setMenuOpen(false)
+    setDropdown(false)
     document.body.style.overflow = ''
   }, [pathname])
+
+  useEffect(() => {
+    const onPointerDown = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node
+      if (!navRef.current) return
+
+      if (!navRef.current.contains(target)) {
+        setDropdown(false)
+        return
+      }
+
+      const dropdownTrigger = (target as Element).closest('.has-dropdown')
+      if (!dropdownTrigger) setDropdown(false)
+    }
+
+    document.addEventListener('mousedown', onPointerDown)
+    document.addEventListener('touchstart', onPointerDown)
+
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown)
+      document.removeEventListener('touchstart', onPointerDown)
+    }
+  }, [])
 
   const toggleMenu = () => {
     setMenuOpen(prev => {
@@ -30,7 +55,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} ref={navRef}>
       <div className="navbar-container">
         <Link href="/" className="navbar-logo text-logo">
           <Image
@@ -69,8 +94,9 @@ export default function Navbar() {
               {link.children ? (
                 <>
                   <button
-                    className="nav-link dropdown-toggle"
+                    className={`nav-link dropdown-toggle ${dropdownOpen ? 'open' : ''}`}
                     onClick={() => setDropdown(prev => !prev)}
+                    aria-expanded={dropdownOpen}
                   >
                     {link.label} <i className="fa-solid fa-chevron-down fa-xs" />
                   </button>
@@ -104,7 +130,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="nav-mini-cta"
           >
-            <i className="fa-regular fa-calendar-check" /> Book Call
+            <i className="fa-regular fa-calendar-check" /> <span className="nav-mini-cta-text">Book Call</span>
           </a>
           <Link href="/get-quote" className="btn btn-primary navbar-cta">
             <i className="fa-solid fa-rocket" /> Start Project

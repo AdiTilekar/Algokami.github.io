@@ -8,7 +8,6 @@ interface SectorPackagesSectionProps {
 const plans = [
   {
     name: 'Starter',
-    price: 'INR 25,000+',
     timeline: '2-3 weeks',
     summary: 'Best for new businesses launching quickly with core pages and lead capture.',
     features: [
@@ -21,7 +20,6 @@ const plans = [
   },
   {
     name: 'Growth',
-    price: 'INR 60,000+',
     timeline: '4-6 weeks',
     summary: 'Best for scaling brands that need stronger conversions and automation.',
     features: [
@@ -35,7 +33,6 @@ const plans = [
   },
   {
     name: 'Enterprise',
-    price: 'INR 1,20,000+',
     timeline: '8-12 weeks',
     summary: 'Best for advanced platforms with workflows, dashboards, and security layers.',
     features: [
@@ -69,7 +66,7 @@ export default function SectorPackagesSection({ sector }: SectorPackagesSectionP
               <article className={`service-package-card ${plan.featured ? 'featured' : ''}`}>
                 {plan.featured && <span className="service-package-badge">Most Popular</span>}
                 <h3>{plan.name}</h3>
-                <p className="service-package-price">{plan.price}</p>
+                <p className="service-package-contact-note">Pricing shared on WhatsApp after a quick scope discussion.</p>
                 <p className="service-package-timeline">Delivery: {plan.timeline}</p>
                 <p className="service-package-summary">{plan.summary}</p>
 
