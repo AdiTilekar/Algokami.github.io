@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Manrope, Space_Grotesk } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import WhatsAppFloat from '@/components/layout/WhatsAppFloat'
 import '@/app/globals.css'
 import '@/styles/sections.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
@@ -132,6 +133,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <Navbar />
         {children}
+        <WhatsAppFloat />
         <Footer />
       </body>
     </html>

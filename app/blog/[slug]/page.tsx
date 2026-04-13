@@ -139,6 +139,19 @@ export default function BlogPostPage({ params }: Props) {
   const post = blogPosts.find(p => p.slug === params.slug)
   if (!post) notFound()
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: {
+      '@type': 'Organization',
+      name: post.author,
+    },
+    image: [post.coverImage],
+  }
+
   return (
     <main className="page-shell">
       <article className="blog-post-shell">
@@ -157,6 +170,20 @@ export default function BlogPostPage({ params }: Props) {
           <Image src={post.coverImage} alt={post.title} fill className="blog-post-image" />
         </div>
         <div className="prose" dangerouslySetInnerHTML={{ __html: post.content }} />
+
+        <div className="blog-inline-cta">
+          <h3>Need A Website Like This For Your Business?</h3>
+          <p>Compare our website packages and choose the plan that matches your budget and timeline.</p>
+          <div className="cta-buttons blog-inline-cta-buttons">
+            <Link href="/plans" className="btn btn-primary">View Pricing & Packages</Link>
+            <Link href="/get-quote" className="btn btn-outline">Get Custom Proposal</Link>
+          </div>
+        </div>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
       </article>
     </main>
   )

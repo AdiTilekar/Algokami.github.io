@@ -14,6 +14,7 @@ module.exports = {
   additionalPaths: async () => [
     { loc: '/',                    priority: 1.0 },
     { loc: '/about',               priority: 0.8 },
+    { loc: '/plans',               priority: 0.9 },
     { loc: '/services/web-app-development', priority: 0.9 },
     { loc: '/services/architecture',        priority: 0.85 },
     { loc: '/services/ecommerce',           priority: 0.9 },

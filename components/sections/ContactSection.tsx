@@ -45,7 +45,7 @@ export default function ContactSection() {
               <div className="contact-icon"><i className="fa-solid fa-phone" /></div>
               <div>
                 <strong>Phone</strong>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <div className="contact-phone-list">
                   <a href="tel:8857066841">8857066841</a>
                 </div>
               </div>
@@ -100,8 +100,7 @@ export default function ContactSection() {
 
               <button
                 type="submit"
-                className="btn btn-primary"
-                style={{ width: '100%', justifyContent: 'center' }}
+                className="btn btn-primary contact-submit-btn"
                 disabled={status === 'loading'}
               >
                 {status === 'loading' ? (

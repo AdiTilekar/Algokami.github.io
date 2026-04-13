@@ -57,6 +57,11 @@ export default function GetQuotePage() {
           <p>
             Tell us about your project and we&apos;ll provide a detailed quote within 24 hours.
           </p>
+          <div className="quote-trust-strip">
+            <span><i className="fa-solid fa-shield-check" /> 120+ website releases</span>
+            <span><i className="fa-solid fa-star" /> 96% client retention</span>
+            <span><i className="fa-solid fa-clock" /> Fast milestone delivery</span>
+          </div>
         </div>
       </section>
 

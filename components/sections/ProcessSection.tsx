@@ -20,7 +20,7 @@ export default function ProcessSection() {
               A clear, structured approach from understanding your needs to launching your
               solution and beyond.
             </p>
-            <Link href="/about" className="btn btn-outline" style={{ marginTop: '32px' }}>
+            <Link href="/about" className="btn btn-outline process-cta-btn">
               See How it Works <i className="fa-solid fa-arrow-right" />
             </Link>
           </div>

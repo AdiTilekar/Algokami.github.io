@@ -14,7 +14,7 @@ export default function LogosSection() {
     <section id="logos" className="logos-section">
       <div className="container">
         <FadeInView>
-          <div className="section-header" style={{ marginBottom: '32px' }}>
+          <div className="section-header section-header-compact">
             <span className="section-label">Technologies</span>
             <h2 className="section-title">Tools We Work With</h2>
           </div>

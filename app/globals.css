@@ -138,12 +138,15 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-f
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 13px 30px;
   border-radius: var(--radius-full);
   font-family: var(--font-family);
   font-size: 1rem;
+  line-height: 1.2;
   font-weight: 600;
+  min-height: 44px;
   cursor: pointer;
   transition: all var(--transition-base);
   border: 2px solid transparent;

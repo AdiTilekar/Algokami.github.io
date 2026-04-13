@@ -19,6 +19,7 @@ export const navLinks: NavLink[] = [
     ],
   },
   { label: 'About Us', href: '/about' },
+  { label: 'Pricing & Packages', href: '/plans' },
   { label: 'Blog',     href: '/blog' },
   { label: 'Contact',  href: '/#contact' },
 ]

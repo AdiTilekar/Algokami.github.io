@@ -16,8 +16,8 @@ export default function HeroSection() {
 
       <div className="hero-content container">
         <FadeInView direction="left" className="hero-left">
-          <span className="badge hero-badge">Built For Serious Business Growth</span>
-          <h1 className="hero-title">Web & App Development That Moves Revenue</h1>
+          <span className="badge hero-badge">Website Packages Starting From INR 25,000</span>
+          <h1 className="hero-title">High-Converting Websites Built Fast, Within Budget</h1>
           <p className="hero-subtitle">
             Trusted execution for{' '}
             <TypewriterText
@@ -25,22 +25,22 @@ export default function HeroSection() {
             />
           </p>
           <p className="hero-description">
-            From conversion-focused websites to custom internal platforms, we design and ship
-            fast digital products with clear business outcomes.
+            Choose a plan, launch quickly, and start converting visitors into leads.
+            Our pricing is transparent, delivery is milestone-based, and support stays with you post-launch.
           </p>
           <div className="hero-buttons">
-            <Link href="/get-quote" className="btn btn-primary hero-cta">
-              Start Your Project <i className="fa-solid fa-arrow-right" />
+            <Link href="/plans" className="btn btn-primary hero-cta">
+              View Pricing & Packages <i className="fa-solid fa-arrow-right" />
             </Link>
-            <Link href="/#services" className="btn btn-outline-light hero-cta">
-              Explore Services
+            <Link href="/get-quote" className="btn btn-outline-light hero-cta">
+              Get Free Proposal
             </Link>
           </div>
 
           <div className="hero-trust-strip">
-            <span><i className="fa-solid fa-check" /> Strategy + UI + Engineering</span>
-            <span><i className="fa-solid fa-check" /> Weekly delivery cycles</span>
-            <span><i className="fa-solid fa-check" /> SEO and performance first</span>
+            <span><i className="fa-solid fa-shield-check" /> Transparent pricing</span>
+            <span><i className="fa-solid fa-rocket" /> Fast delivery milestones</span>
+            <span><i className="fa-solid fa-headset" /> Post-launch support included</span>
           </div>
 
           <div className="hero-stats-card">
