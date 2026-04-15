@@ -1,4 +1,4 @@
-import { neon } from '@neondatabase/serverless'
+import { Pool } from 'pg'
 
 interface ContactLeadPayload {
   name: string
@@ -37,6 +37,7 @@ export interface QuoteLeadRecord {
 }
 
 let tablesEnsured = false
+let pool: Pool | null = null
 
 function shouldAutoInitTables() {
   if (process.env.LEADS_AUTO_INIT === 'true') return true
@@ -46,16 +47,18 @@ function shouldAutoInitTables() {
 
 function getDatabaseUrl() {
   return (
+    process.env.DATABASE_URL_UNPOOLED ||
+    process.env.POSTGRES_URL_NON_POOLING ||
     process.env.DATABASE_URL ||
     process.env.POSTGRES_URL ||
     process.env.POSTGRES_PRISMA_URL ||
-    process.env.POSTGRES_URL_NON_POOLING ||
-    process.env.DATABASE_URL_UNPOOLED ||
     ''
   )
 }
 
-function getSqlClient() {
+function getPool() {
+  if (pool) return pool
+
   const databaseUrl = getDatabaseUrl()
   if (!databaseUrl) {
     throw new Error(
@@ -63,7 +66,15 @@ function getSqlClient() {
     )
   }
 
-  return neon(databaseUrl)
+  pool = new Pool({
+    connectionString: databaseUrl,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+    max: 5,
+  })
+
+  return pool
 }
 
 async function ensureLeadTables() {
@@ -76,9 +87,9 @@ async function ensureLeadTables() {
     return
   }
 
-  const sql = getSqlClient()
+  const db = getPool()
 
-  await sql`
+  await db.query(`
     CREATE TABLE IF NOT EXISTS contact_leads (
       id BIGSERIAL PRIMARY KEY,
       name TEXT NOT NULL,
@@ -87,9 +98,9 @@ async function ensureLeadTables() {
       message TEXT NOT NULL,
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     );
-  `
+  `)
 
-  await sql`
+  await db.query(`
     CREATE TABLE IF NOT EXISTS quote_leads (
       id BIGSERIAL PRIMARY KEY,
       name TEXT NOT NULL,
@@ -100,62 +111,66 @@ async function ensureLeadTables() {
       message TEXT,
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     );
-  `
+  `)
 
   tablesEnsured = true
 }
 
 export async function saveContactLead(payload: ContactLeadPayload) {
   await ensureLeadTables()
-  const sql = getSqlClient()
+  const db = getPool()
 
-  await sql`
-    INSERT INTO contact_leads (name, email, phone, message)
-    VALUES (${payload.name}, ${payload.email}, ${payload.phone ?? null}, ${payload.message});
-  `
+  await db.query(
+    `INSERT INTO contact_leads (name, email, phone, message)
+     VALUES ($1, $2, $3, $4);`,
+    [payload.name, payload.email, payload.phone ?? null, payload.message]
+  )
 }
 
 export async function saveQuoteLead(payload: QuoteLeadPayload) {
   await ensureLeadTables()
-  const sql = getSqlClient()
+  const db = getPool()
 
-  await sql`
-    INSERT INTO quote_leads (name, email, phone, company, service, message)
-    VALUES (
-      ${payload.name},
-      ${payload.email},
-      ${payload.phone ?? null},
-      ${payload.company ?? null},
-      ${payload.service ?? null},
-      ${payload.message ?? null}
-    );
-  `
+  await db.query(
+    `INSERT INTO quote_leads (name, email, phone, company, service, message)
+     VALUES ($1, $2, $3, $4, $5, $6);`,
+    [
+      payload.name,
+      payload.email,
+      payload.phone ?? null,
+      payload.company ?? null,
+      payload.service ?? null,
+      payload.message ?? null,
+    ]
+  )
 }
 
 export async function getContactLeads(limit = 100): Promise<ContactLeadRecord[]> {
   await ensureLeadTables()
-  const sql = getSqlClient()
+  const db = getPool()
 
-  const rows = await sql`
-    SELECT id, name, email, phone, message, created_at
-    FROM contact_leads
-    ORDER BY created_at DESC
-    LIMIT ${limit};
-  `
+  const result = await db.query(
+    `SELECT id, name, email, phone, message, created_at
+     FROM contact_leads
+     ORDER BY created_at DESC
+     LIMIT $1;`,
+    [limit]
+  )
 
-  return rows as ContactLeadRecord[]
+  return result.rows as ContactLeadRecord[]
 }
 
 export async function getQuoteLeads(limit = 100): Promise<QuoteLeadRecord[]> {
   await ensureLeadTables()
-  const sql = getSqlClient()
+  const db = getPool()
 
-  const rows = await sql`
-    SELECT id, name, email, phone, company, service, message, created_at
-    FROM quote_leads
-    ORDER BY created_at DESC
-    LIMIT ${limit};
-  `
+  const result = await db.query(
+    `SELECT id, name, email, phone, company, service, message, created_at
+     FROM quote_leads
+     ORDER BY created_at DESC
+     LIMIT $1;`,
+    [limit]
+  )
 
-  return rows as QuoteLeadRecord[]
+  return result.rows as QuoteLeadRecord[]
 }
