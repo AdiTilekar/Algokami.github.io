@@ -32,8 +32,34 @@ Required environment variables:
 - `RESEND_API_KEY` - Get from [resend.com](https://resend.com)
 - `RESEND_FROM_EMAIL` - Your verified sending domain
 - `RESEND_TO_EMAIL` - Where contact form emails go
+- `GOOGLE_SHEETS_SPREADSHEET_ID` - Spreadsheet ID for quote leads
+- `GOOGLE_SHEETS_SHEET_NAME` - Sheet tab name (for example: Sheet1)
+- `GOOGLE_SHEETS_CLIENT_EMAIL` - Service account email
+- `GOOGLE_SHEETS_PRIVATE_KEY` - Service account private key (keep `\n` escaped)
+- `GOOGLE_APPS_SCRIPT_WEBHOOK_URL` - Free webhook URL from Apps Script (recommended no-cost path)
 - `NEXT_PUBLIC_SITE_URL` - Your production URL
 - `NEXT_PUBLIC_CALENDLY_URL` - Your Calendly booking link
+
+### Free Lead Storage in Google Sheets
+
+The `/get-quote` form can append directly to Google Sheets for free.
+
+Option A (recommended, no service account needed):
+
+1. Open your Google Sheet.
+2. Go to Extensions > Apps Script.
+3. Paste a `doPost(e)` script that appends JSON fields to the sheet.
+4. Deploy as Web App with access set to "Anyone".
+5. Set `GOOGLE_APPS_SCRIPT_WEBHOOK_URL` in `.env.local`.
+6. Restart server and submit a test quote.
+
+Option B (service account based):
+
+1. Create a Google Cloud service account and generate a JSON key.
+2. Copy `client_email` and `private_key` into env vars above.
+3. Share the sheet with `GOOGLE_SHEETS_CLIENT_EMAIL` as **Editor**.
+4. Set `GOOGLE_SHEETS_SPREADSHEET_ID` and `GOOGLE_SHEETS_SHEET_NAME`.
+5. Restart server and submit a test quote.
 
 ### 3. Run Development Server
 

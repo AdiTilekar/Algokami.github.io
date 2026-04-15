@@ -16,7 +16,7 @@ export default function HeroSection() {
 
       <div className="hero-content container">
         <FadeInView direction="left" className="hero-left">
-          <span className="badge hero-badge">Website Packages Starting From INR 25,000</span>
+          <span className="badge hero-badge">Tailored Website Packages Built For Growth</span>
           <h1 className="hero-title">High-Converting Websites Built Fast, Within Budget</h1>
           <p className="hero-subtitle">
             Trusted execution for{' '}

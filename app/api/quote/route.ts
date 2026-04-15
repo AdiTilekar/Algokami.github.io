@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { sendContactEmail } from '@/lib/sendEmail'
+import { appendQuoteLeadToSheet } from '@/lib/googleSheets'
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { name, email, phone, message, service, budget, company } = body
+    const { name, email, phone, message, service, company } = body
 
     if (!name?.trim() || !email?.trim()) {
       return NextResponse.json({ error: 'Name and email are required.' }, { status: 400 })
@@ -18,24 +18,21 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    await sendContactEmail({
+    await appendQuoteLeadToSheet({
       name,
       email,
       phone,
-      message: `
-Company: ${company || 'Not specified'}
-Service: ${service || 'Not specified'}
-Budget: ${budget || 'Not specified'}
-
-Project Details:
-${message || 'No details provided'}
-      `.trim(),
-      subject: `Quote Request from ${name} — ${service || 'General'}`,
+      company,
+      service,
+      message,
     })
 
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true, message: 'Quote request saved to Google Sheets.' })
   } catch (error) {
     console.error('Quote API error:', error)
-    return NextResponse.json({ error: 'Failed to send request.' }, { status: 500 })
+    return NextResponse.json(
+      { error: 'Failed to save request to Google Sheets.' },
+      { status: 500 }
+    )
   }
 }

@@ -124,14 +124,6 @@ export default function Navbar() {
         </ul>
 
         <div className="navbar-actions">
-          <a
-            href={process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/yourusername'}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-mini-cta"
-          >
-            <i className="fa-regular fa-calendar-check" /> <span className="nav-mini-cta-text">Book Call</span>
-          </a>
           <Link href="/get-quote" className="btn btn-primary navbar-cta">
             <i className="fa-solid fa-rocket" /> Start Project
           </Link>

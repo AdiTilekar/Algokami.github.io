@@ -9,7 +9,6 @@ interface QuoteFormData {
   phone: string
   company: string
   service: string
-  budget: string
   message: string
 }
 
@@ -19,7 +18,6 @@ const initialForm: QuoteFormData = {
   phone: '',
   company: '',
   service: '',
-  budget: '',
   message: '',
 }
 
@@ -124,20 +122,6 @@ export default function GetQuotePage() {
                       <option value="ecommerce">E-Commerce</option>
                       <option value="branding">Branding & PR</option>
                       <option value="other">Other</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="budget">Budget Range</label>
-                    <select
-                      id="budget" name="budget"
-                      value={form.budget} onChange={handleChange}
-                    >
-                      <option value="">Select budget range</option>
-                      <option value="under-50k">Under ₹50,000</option>
-                      <option value="50k-1l">₹50,000 - ₹1,00,000</option>
-                      <option value="1l-3l">₹1,00,000 - ₹3,00,000</option>
-                      <option value="3l-5l">₹3,00,000 - ₹5,00,000</option>
-                      <option value="above-5l">Above ₹5,00,000</option>
                     </select>
                   </div>
                 </div>
