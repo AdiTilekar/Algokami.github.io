@@ -108,6 +108,10 @@ Recommended: Deploy to [Vercel](https://vercel.com)
 3. Add environment variables in Vercel settings
 4. Deploy!
 
+If you use the enquiries dashboard (`/enquiries`), also set:
+- `ENQUIRIES_ADMIN_ID`
+- `ENQUIRIES_ADMIN_PASS`
+
 ## License
 
 MIT

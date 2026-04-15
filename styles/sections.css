@@ -1497,6 +1497,90 @@
   color: var(--color-accent);
 }
 
+.enquiries-section .container {
+  display: grid;
+  gap: 24px;
+}
+
+.enquiries-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(19, 44, 102, 0.1);
+  box-shadow: var(--shadow-sm);
+  padding: 22px;
+}
+
+.enquiries-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.enquiries-card-head h2 {
+  color: var(--color-primary);
+  font-size: 1.15rem;
+}
+
+.enquiries-card-head span {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(31, 140, 255, 0.08);
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.enquiries-table-wrap {
+  overflow-x: auto;
+}
+
+.enquiries-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.enquiries-table th,
+.enquiries-table td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(15, 35, 87, 0.08);
+  vertical-align: top;
+  font-size: 0.88rem;
+}
+
+.enquiries-table th {
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.enquiries-message-cell {
+  max-width: 420px;
+  white-space: pre-wrap;
+}
+
+.enquiries-empty {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.enquiries-error {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(220, 38, 38, 0.24);
+  background: rgba(254, 226, 226, 0.6);
+  color: #7f1d1d;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .not-found-shell {
   min-height: 100vh;
   display: flex;
@@ -1772,6 +1856,13 @@
   }
   .contact-map-placeholder {
     min-height: 220px;
+  }
+  .enquiries-card {
+    padding: 16px;
+  }
+  .enquiries-card-head {
+    align-items: flex-start;
+    flex-direction: column;
   }
   .contact-inner   { grid-template-columns: 1fr; }
   .form-row        { grid-template-columns: 1fr; }

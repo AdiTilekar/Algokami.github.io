@@ -16,12 +16,45 @@ interface QuoteLeadPayload {
   message?: string
 }
 
+export interface ContactLeadRecord {
+  id: number
+  name: string
+  email: string
+  phone: string | null
+  message: string
+  created_at: string
+}
+
+export interface QuoteLeadRecord {
+  id: number
+  name: string
+  email: string
+  phone: string | null
+  company: string | null
+  service: string | null
+  message: string | null
+  created_at: string
+}
+
 let tablesEnsured = false
 
+function getDatabaseUrl() {
+  return (
+    process.env.DATABASE_URL ||
+    process.env.POSTGRES_URL ||
+    process.env.POSTGRES_PRISMA_URL ||
+    process.env.POSTGRES_URL_NON_POOLING ||
+    process.env.DATABASE_URL_UNPOOLED ||
+    ''
+  )
+}
+
 function getSqlClient() {
-  const databaseUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL
+  const databaseUrl = getDatabaseUrl()
   if (!databaseUrl) {
-    throw new Error('DATABASE_URL or POSTGRES_URL is not set')
+    throw new Error(
+      'Database URL env var is missing. Set DATABASE_URL, POSTGRES_URL, or POSTGRES_PRISMA_URL.'
+    )
   }
 
   return neon(databaseUrl)
@@ -84,4 +117,32 @@ export async function saveQuoteLead(payload: QuoteLeadPayload) {
       ${payload.message ?? null}
     );
   `
+}
+
+export async function getContactLeads(limit = 100): Promise<ContactLeadRecord[]> {
+  await ensureLeadTables()
+  const sql = getSqlClient()
+
+  const rows = await sql`
+    SELECT id, name, email, phone, message, created_at
+    FROM contact_leads
+    ORDER BY created_at DESC
+    LIMIT ${limit};
+  `
+
+  return rows as ContactLeadRecord[]
+}
+
+export async function getQuoteLeads(limit = 100): Promise<QuoteLeadRecord[]> {
+  await ensureLeadTables()
+  const sql = getSqlClient()
+
+  const rows = await sql`
+    SELECT id, name, email, phone, company, service, message, created_at
+    FROM quote_leads
+    ORDER BY created_at DESC
+    LIMIT ${limit};
+  `
+
+  return rows as QuoteLeadRecord[]
 }
