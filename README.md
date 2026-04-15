@@ -32,7 +32,7 @@ Required environment variables:
 - `RESEND_API_KEY` - Get from [resend.com](https://resend.com)
 - `RESEND_FROM_EMAIL` - Your verified sending domain
 - `RESEND_TO_EMAIL` - Where contact and quote form emails go
-- `POSTGRES_URL` - Vercel Postgres (Neon-backed) connection string for lead storage
+- `DATABASE_URL` or `POSTGRES_URL` - Vercel Postgres / Neon connection string for lead storage
 - `NEXT_PUBLIC_SITE_URL` - Your production URL
 - `NEXT_PUBLIC_CALENDLY_URL` - Your Calendly booking link
 
@@ -42,7 +42,7 @@ Both `/contact` and `/get-quote` form submissions are stored in Postgres and als
 
 1. In Vercel, create a Postgres database from **Storage**.
 2. Connect it to this project.
-3. Copy the generated `POSTGRES_URL` into `.env.local`.
+3. Copy the generated `DATABASE_URL` (or `POSTGRES_URL`) into `.env.local`.
 4. Redeploy (or restart local dev server).
 
 Tables are created automatically on first submission:

@@ -19,9 +19,9 @@ interface QuoteLeadPayload {
 let tablesEnsured = false
 
 function getSqlClient() {
-  const databaseUrl = process.env.POSTGRES_URL
+  const databaseUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL
   if (!databaseUrl) {
-    throw new Error('POSTGRES_URL is not set')
+    throw new Error('DATABASE_URL or POSTGRES_URL is not set')
   }
 
   return neon(databaseUrl)
