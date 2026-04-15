@@ -8,11 +8,11 @@ interface SectorPackagesSectionProps {
 const plans = [
   {
     name: 'Starter',
-    timeline: '7-10 days',
+    timeline: '1-2 weeks',
     summary:
       'Launch your online presence fast — professional, mobile-ready, and built to capture leads from day one.',
     features: [
-      'Up to 8 pages',
+      'Up to 35 pages',
       'Fully responsive design',
       'WhatsApp + contact form lead capture',
       'Basic on-page SEO setup',
@@ -26,7 +26,7 @@ const plans = [
     summary:
       'For brands ready to convert visitors into paying customers — with custom UI, automation, and real performance.',
     features: [
-      'Up to 20 pages + blog',
+      'Up to 45 pages + blog',
       'Custom UI sections & animations',
       'CMS or third-party API integration',
       'Core Web Vitals performance tuning',
