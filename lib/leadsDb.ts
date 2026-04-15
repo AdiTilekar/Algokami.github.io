@@ -38,6 +38,12 @@ export interface QuoteLeadRecord {
 
 let tablesEnsured = false
 
+function shouldAutoInitTables() {
+  if (process.env.LEADS_AUTO_INIT === 'true') return true
+  if (process.env.NODE_ENV !== 'production') return true
+  return false
+}
+
 function getDatabaseUrl() {
   return (
     process.env.DATABASE_URL ||
@@ -62,6 +68,13 @@ function getSqlClient() {
 
 async function ensureLeadTables() {
   if (tablesEnsured) return
+
+  // Some production DB roles can INSERT/SELECT but cannot CREATE TABLE.
+  // Skip auto-init in production unless explicitly enabled.
+  if (!shouldAutoInitTables()) {
+    tablesEnsured = true
+    return
+  }
 
   const sql = getSqlClient()
 
