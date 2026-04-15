@@ -22,11 +22,7 @@ npm install
 
 ### 2. Environment Variables
 
-Copy the example env file and fill in your values:
-
-```bash
-cp .env.example .env.local
-```
+Create a `.env.local` file in the project root and fill in your values.
 
 Required environment variables:
 - `RESEND_API_KEY` - Get from [resend.com](https://resend.com)
