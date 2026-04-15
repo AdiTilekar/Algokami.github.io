@@ -226,7 +226,7 @@
   white-space: nowrap;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1260px) {
   .navbar-container {
     gap: 12px;
   }
@@ -1332,6 +1332,17 @@
 .service-package-list i {
   color: var(--color-accent);
   margin-top: 2px;
+}
+.service-package-contact-note {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(31, 140, 255, 0.22);
+  background: rgba(31, 140, 255, 0.06);
+  color: var(--color-primary);
+  font-size: 0.84rem;
+  line-height: 1.6;
+  font-weight: 600;
 }
 .service-package-cta {
   width: 100%;

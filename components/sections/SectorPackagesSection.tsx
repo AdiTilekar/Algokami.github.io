@@ -8,44 +8,52 @@ interface SectorPackagesSectionProps {
 const plans = [
   {
     name: 'Starter',
-    timeline: '2-3 weeks',
-    summary: 'Best for new businesses launching quickly with core pages and lead capture.',
+    timeline: '7-10 days',
+    summary:
+      'Launch your online presence fast — professional, mobile-ready, and built to capture leads from day one.',
     features: [
-      'Up to 5 pages',
-      'Responsive design',
-      'Basic on-page SEO',
-      'Contact form integration',
-      '1 month support',
+      'Up to 8 pages',
+      'Fully responsive design',
+      'WhatsApp + contact form lead capture',
+      'Basic on-page SEO setup',
+      'Google Analytics integration',
+      '30 days post-launch support',
     ],
   },
   {
     name: 'Growth',
-    timeline: '4-6 weeks',
-    summary: 'Best for scaling brands that need stronger conversions and automation.',
+    timeline: '2-3 weeks',
+    summary:
+      'For brands ready to convert visitors into paying customers — with custom UI, automation, and real performance.',
     features: [
-      'Up to 15 pages',
-      'Custom UI sections',
-      'Performance optimization',
-      'CRM or API integrations',
-      '3 months support',
+      'Up to 20 pages + blog',
+      'Custom UI sections & animations',
+      'CMS or third-party API integration',
+      'Core Web Vitals performance tuning',
+      'Advanced SEO + schema markup',
+      '3 months priority support',
     ],
     featured: true,
   },
   {
     name: 'Enterprise',
-    timeline: '8-12 weeks',
-    summary: 'Best for advanced platforms with workflows, dashboards, and security layers.',
+    timeline: '4-6 weeks',
+    summary:
+      'Full-scale web platforms — custom dashboards, secure workflows, and integrations built to handle real business complexity.',
     features: [
       'Custom web app architecture',
-      'Advanced integrations',
-      'Role-based access and security',
-      'Analytics dashboard',
-      '6 months support',
+      'Role-based access & security layers',
+      'Analytics dashboard & reporting',
+      'Advanced API & payment integrations',
+      'Automated workflows & notifications',
+      '6 months dedicated support',
     ],
   },
 ]
 
 export default function SectorPackagesSection({ sector }: SectorPackagesSectionProps) {
+  const callNumber = '8857066841'
+
   return (
     <section className="service-packages-section">
       <div className="container">
@@ -64,10 +72,9 @@ export default function SectorPackagesSection({ sector }: SectorPackagesSectionP
           {plans.map((plan, index) => (
             <FadeInView key={plan.name} delay={index * 0.1}>
               <article className={`service-package-card ${plan.featured ? 'featured' : ''}`}>
-                {plan.featured && <span className="service-package-badge">Most Popular</span>}
+                {plan.featured && <span className="service-package-badge">Most popular</span>}
                 <h3>{plan.name}</h3>
-                <p className="service-package-contact-note">Pricing shared on WhatsApp after a quick scope discussion.</p>
-                <p className="service-package-timeline">Delivery: {plan.timeline}</p>
+                <p className="service-package-timeline">Ready in {plan.timeline}</p>
                 <p className="service-package-summary">{plan.summary}</p>
 
                 <ul className="service-package-list">
@@ -79,8 +86,12 @@ export default function SectorPackagesSection({ sector }: SectorPackagesSectionP
                   ))}
                 </ul>
 
-                <Link href="/get-quote" className="btn btn-primary service-package-cta">
-                  Choose {plan.name} <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                <p className="service-package-contact-note">
+                  Pricing discussed on WhatsApp after a quick scope call.
+                </p>
+
+                <Link href={`tel:${callNumber}`} className="btn btn-primary service-package-cta">
+                  Call Now <i className="fa-solid fa-phone" aria-hidden="true" />
                 </Link>
               </article>
             </FadeInView>
