@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { sendContactEmail } from '@/lib/sendEmail'
 import { saveContactLead } from '@/lib/leadsDb'
 
 export async function POST(req: NextRequest) {
@@ -24,14 +23,12 @@ export async function POST(req: NextRequest) {
     }
 
     await saveContactLead({ name, email, phone, message })
-
-    await sendContactEmail({ name, email, phone, message })
-    return NextResponse.json({ success: true, message: 'Email sent successfully.' })
+    return NextResponse.json({ success: true, message: 'Enquiry saved successfully.' })
 
   } catch (error) {
     console.error('Contact API error:', error)
     return NextResponse.json(
-      { error: 'Failed to send email. Please try again.' },
+      { error: 'Failed to save enquiry. Please try again.' },
       { status: 500 }
     )
   }

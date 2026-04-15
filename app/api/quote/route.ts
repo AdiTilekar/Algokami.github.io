@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { sendQuoteEmail } from '@/lib/sendEmail'
 import { saveQuoteLead } from '@/lib/leadsDb'
 
 export async function POST(req: NextRequest) {
@@ -28,20 +27,11 @@ export async function POST(req: NextRequest) {
       message,
     })
 
-    await sendQuoteEmail({
-      name,
-      email,
-      phone,
-      company,
-      service,
-      message,
-    })
-
-    return NextResponse.json({ success: true, message: 'Quote request sent successfully.' })
+    return NextResponse.json({ success: true, message: 'Quote request saved successfully.' })
   } catch (error) {
     console.error('Quote API error:', error)
     return NextResponse.json(
-      { error: 'Failed to send quote request. Please try again.' },
+      { error: 'Failed to save quote request. Please try again.' },
       { status: 500 }
     )
   }
