@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { appendQuoteLeadToSheet } from '@/lib/googleSheets'
+import { sendQuoteEmail } from '@/lib/sendEmail'
+import { saveQuoteLead } from '@/lib/leadsDb'
 
 export async function POST(req: NextRequest) {
   try {
@@ -18,7 +19,7 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    await appendQuoteLeadToSheet({
+    await saveQuoteLead({
       name,
       email,
       phone,
@@ -27,11 +28,20 @@ export async function POST(req: NextRequest) {
       message,
     })
 
-    return NextResponse.json({ success: true, message: 'Quote request saved to Google Sheets.' })
+    await sendQuoteEmail({
+      name,
+      email,
+      phone,
+      company,
+      service,
+      message,
+    })
+
+    return NextResponse.json({ success: true, message: 'Quote request sent successfully.' })
   } catch (error) {
     console.error('Quote API error:', error)
     return NextResponse.json(
-      { error: 'Failed to save request to Google Sheets.' },
+      { error: 'Failed to send quote request. Please try again.' },
       { status: 500 }
     )
   }

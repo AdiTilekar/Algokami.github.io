@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sendContactEmail } from '@/lib/sendEmail'
+import { saveContactLead } from '@/lib/leadsDb'
 
 export async function POST(req: NextRequest) {
   try {
@@ -21,6 +22,8 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       )
     }
+
+    await saveContactLead({ name, email, phone, message })
 
     await sendContactEmail({ name, email, phone, message })
     return NextResponse.json({ success: true, message: 'Email sent successfully.' })
