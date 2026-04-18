@@ -1,97 +1,140 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk } from 'next/font/google'
+import { Manrope, Space_Grotesk } from 'next/font/google'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import WhatsAppFloat from '@/components/layout/WhatsAppFloat'
 import '@/app/globals.css'
+import '@/styles/sections.css'
+import '@fortawesome/fontawesome-free/css/all.min.css'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['500', '600', '700'],
   variable: '--font-display',
+  display: 'swap',
+})
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-body',
   display: 'swap',
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://algokami.tech'
 const siteName = 'Algokami Tech Solutions'
-const faviconUrl = '/Favicon%20algokami.png?v=20260417'
-const founders = ['Harsh Bhakare', 'Aditya Tilekar', 'Sanket Ganje']
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION
+const defaultDescription =
+  'Budget-friendly website development company specializing in personalized website development, business websites, and custom web solutions that convert.'
+const ogImage = '/images/og-preview.jpg'
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: siteName,
-  alternateName: ['Algokami', 'Algo Kami'],
   url: siteUrl,
-  logo: `${siteUrl}/Favicon%20algokami.png`,
-  foundingMember: founders.map((name) => ({
-    '@type': 'Person',
-    name,
-  })),
+  logo: `${siteUrl}/images/logos/Algo%20Kami%20logo.webp`,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'algokamitech@gmail.com',
+    telephone: '+91-8857066841',
+    contactType: 'customer support',
+    areaServed: 'IN',
+    availableLanguage: ['en'],
+  },
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: siteName,
+  url: siteUrl,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteUrl}/blog?search={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
 }
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: siteName,
+  referrer: 'origin-when-cross-origin',
   title: {
     template: `%s | ${siteName}`,
-    default: `${siteName} (Algokami) — We Build Growth Engines`,
+    default: `${siteName} — Personalized Website Development Company`,
   },
-  description:
-    'Algokami (Algo Kami) is a custom web development and digital solutions company founded by Harsh Bhakare, Aditya Tilekar, and Sanket Ganje.',
+  description: defaultDescription,
   keywords: [
-    'algokami',
-    'algo kami',
-    'algokami tech solutions',
-    'harsh bhakare',
-    'aditya tilekar',
-    'sanket ganje',
-    'web development',
-    'web design',
-    'app development',
-    'UI/UX design',
-    'e-commerce',
-    'digital agency',
+    'web development company',
+    'personalized website development',
+    'custom website development',
+    'budget website development',
+    'affordable web developers',
+    'business website development',
+    'ecommerce website development',
+    'Pune website developers',
   ],
   authors: [{ name: siteName }],
   creator: siteName,
   publisher: siteName,
+  category: 'technology',
+  alternates: {
+    canonical: '/',
+  },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: googleSiteVerification,
   },
   openGraph: {
     type: 'website',
     siteName,
-    locale: 'en_US',
+    locale: 'en_IN',
     url: '/',
-    title: `${siteName} — We Build Growth Engines`,
-    description: 'Custom web development, apps, and digital solutions that drive real results.',
-    images: [{ url: `${siteUrl}/og.jpg`, width: 1200, height: 630, alt: siteName }],
+    title: `${siteName} — Personalized Website Development Company`,
+    description: defaultDescription,
+    images: [{ url: ogImage, width: 1200, height: 630, alt: siteName }],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteName,
-    description: 'Custom web development, apps, and digital solutions that drive real results.',
+    description: defaultDescription,
+    images: [ogImage],
   },
+  manifest: '/manifest.webmanifest',
   icons: {
-    icon: [
-      {
-        url: faviconUrl,
-        type: 'image/png',
-      },
-    ],
-    shortcut: [faviconUrl],
-    apple: [faviconUrl],
+    icon: '/images/logos/Algo%20Kami%20favicon%201.webp',
+    shortcut: '/images/logos/Algo%20Kami%20favicon%201.webp',
+    apple: '/images/logos/Algo%20Kami%20favicon%201.webp',
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={spaceGrotesk.variable} suppressHydrationWarning>
-      <body className="bg-bg text-text-primary antialiased" data-loading="true">
+    <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
+      <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <Navbar />
         {children}
+        <WhatsAppFloat />
+        <Footer />
       </body>
     </html>
   )

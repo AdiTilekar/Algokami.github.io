@@ -6,6 +6,10 @@ export const metadata: Metadata = {
 	title: 'Digital Marketing Services',
 	description:
 		'Performance-focused digital marketing services including SEO, paid ads, social media, and conversion optimization.',
+	robots: {
+		index: false,
+		follow: false,
+	},
 }
 
 const offerings = [
