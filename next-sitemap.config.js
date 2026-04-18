@@ -5,6 +5,7 @@ module.exports = {
   sitemapSize: 7000,
   changefreq: 'monthly',
   priority: 0.7,
+  exclude: ['/enquiries', '/manifest.webmanifest'],
   robotsTxtOptions: {
     policies: [
       { userAgent: '*', allow: '/' },
@@ -14,6 +15,7 @@ module.exports = {
   additionalPaths: async () => [
     { loc: '/',                    priority: 1.0 },
     { loc: '/about',               priority: 0.8 },
+    { loc: '/services',            priority: 0.9 },
     { loc: '/plans',               priority: 0.9 },
     { loc: '/services/web-app-development', priority: 0.9 },
     { loc: '/services/architecture',        priority: 0.85 },
