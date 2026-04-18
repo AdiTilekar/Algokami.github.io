@@ -4,7 +4,37 @@ import FadeInView from '@/components/animations/FadeInView'
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Learn about Algokami Infotech Solutions - our mission, values, and team dedicated to web development excellence.',
+  description:
+    'Learn about Algokami Tech Solutions and our founders Harsh Bhakare, Aditya Tilekar, and Sanket Ganje.',
+  keywords: [
+    'algokami',
+    'algo kami',
+    'harsh bhakare',
+    'aditya tilekar',
+    'sanket ganje',
+    'algokami founders',
+  ],
+  alternates: {
+    canonical: '/about',
+  },
+}
+
+const founders = ['Harsh Bhakare', 'Aditya Tilekar', 'Sanket Ganje']
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Algokami Tech Solutions',
+  url: 'https://algokami.tech/about',
+  about: founders.map((name) => ({
+    '@type': 'Person',
+    name,
+    jobTitle: 'Founder',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Algokami Tech Solutions',
+    },
+  })),
 }
 
 export default function AboutPage() {
@@ -33,6 +63,20 @@ export default function AboutPage() {
                 At Algokami Infotech Solutions, we believe every business deserves a powerful digital presence.
                 Our mission is to transform ideas into impactful digital experiences that drive growth,
                 engagement, and success.
+              </p>
+            </div>
+          </FadeInView>
+
+          <FadeInView delay={0.15}>
+            <div className="page-content-narrow page-center page-section-gap">
+              <span className="section-label">Founders</span>
+              <h2 className="section-title">Built by a founding team focused on results</h2>
+              <p className="section-subtitle page-subtitle-center">
+                Algokami Tech Solutions is founded by Harsh Bhakare, Aditya Tilekar, and Sanket Ganje.
+                Their combined focus is brand visibility, product quality, and practical business growth.
+              </p>
+              <p className="section-subtitle page-subtitle-center">
+                Founders: {founders.join(', ')}.
               </p>
             </div>
           </FadeInView>
@@ -124,6 +168,11 @@ export default function AboutPage() {
           </FadeInView>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
     </main>
   )
 }
