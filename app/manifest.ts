@@ -12,14 +12,14 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#0B1228',
     icons: [
       {
-        src: '/images/logos/Algo%20Kami%20favicon%201.webp',
+        src: '/images/favicon%20final.png?v=20260418',
         sizes: '192x192',
-        type: 'image/webp',
+        type: 'image/png',
       },
       {
-        src: '/images/logos/Algo%20Kami%20favicon%201.webp',
+        src: '/images/favicon%20final.png?v=20260418',
         sizes: '512x512',
-        type: 'image/webp',
+        type: 'image/png',
       },
     ],
   }

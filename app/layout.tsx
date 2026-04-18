@@ -113,9 +113,9 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.webmanifest',
   icons: {
-    icon: '/images/logos/Algo%20Kami%20favicon%201.webp',
-    shortcut: '/images/logos/Algo%20Kami%20favicon%201.webp',
-    apple: '/images/logos/Algo%20Kami%20favicon%201.webp',
+    icon: '/images/favicon%20final.png?v=20260418',
+    shortcut: '/images/favicon%20final.png?v=20260418',
+    apple: '/images/favicon%20final.png?v=20260418',
   },
 }
 
