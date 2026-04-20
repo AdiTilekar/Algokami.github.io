@@ -13,9 +13,27 @@ export default function Navbar() {
   const pathname = usePathname()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
+    let ticking = false
+    let rafId: number | null = null
+
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+
+      rafId = window.requestAnimationFrame(() => {
+        const nextScrolled = window.scrollY > 50
+        setScrolled((prev) => (prev === nextScrolled ? prev : nextScrolled))
+        ticking = false
+      })
+    }
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (rafId) window.cancelAnimationFrame(rafId)
+    }
   }, [])
 
   useEffect(() => {

@@ -7,11 +7,18 @@ import type { ISourceOptions } from '@tsparticles/engine'
 export default function ParticlesBackground() {
   const [init, setInit] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   useEffect(() => {
     const updateViewport = () => setIsMobile(window.innerWidth <= 768)
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updateReducedMotion = () => setPrefersReducedMotion(mediaQuery.matches)
+
     updateViewport()
-    window.addEventListener('resize', updateViewport)
+    updateReducedMotion()
+
+    window.addEventListener('resize', updateViewport, { passive: true })
+    mediaQuery.addEventListener('change', updateReducedMotion)
 
     initParticlesEngine(async (engine) => {
       await loadSlim(engine)
@@ -19,24 +26,29 @@ export default function ParticlesBackground() {
       setInit(true)
     })
 
-    return () => window.removeEventListener('resize', updateViewport)
+    return () => {
+      window.removeEventListener('resize', updateViewport)
+      mediaQuery.removeEventListener('change', updateReducedMotion)
+    }
   }, [])
 
   const options: ISourceOptions = useMemo(
     () => ({
       fullScreen: { enable: false },
       background: { color: { value: 'transparent' } },
-      fpsLimit: 60,
+      fpsLimit: isMobile ? 24 : 40,
+      pauseOnBlur: true,
+      pauseOnOutsideViewport: true,
       particles: {
-        number: { value: isMobile ? 28 : 80, density: { enable: true } },
+        number: { value: isMobile ? 18 : 42, density: { enable: true } },
         color: { value: '#ffffff' },
         opacity: {
           value: isMobile ? 0.22 : 0.35,
-          animation: { enable: true, speed: 0.5, startValue: 'random', minimumValue: 0.1 },
+          animation: { enable: !isMobile, speed: 0.3, startValue: 'random', minimumValue: 0.1 },
         },
         size: { value: { min: 1, max: isMobile ? 2 : 3 } },
         links: {
-          enable: true,
+          enable: !isMobile,
           distance: isMobile ? 110 : 150,
           color: '#ffffff',
           opacity: isMobile ? 0.10 : 0.15,
@@ -44,7 +56,7 @@ export default function ParticlesBackground() {
         },
         move: {
           enable: true,
-          speed: isMobile ? 0.7 : 1.2,
+          speed: isMobile ? 0.5 : 0.8,
           direction: 'none',
           random: true,
           straight: false,
@@ -63,12 +75,12 @@ export default function ParticlesBackground() {
           push: { quantity: 3 },
         },
       },
-      detectRetina: true,
+      detectRetina: false,
     }),
-    []
+    [isMobile]
   )
 
-  if (!init) return null
+  if (!init || isMobile || prefersReducedMotion) return null
 
   return <Particles id="tsparticles" options={options} />
 }
