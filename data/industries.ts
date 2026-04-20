@@ -12,5 +12,5 @@ export const industries: Industry[] = [
   { id: 9,  name: 'Healthcare',           icon: 'fa-heart-pulse' },
   { id: 10, name: 'On-Demand',            icon: 'fa-mobile-screen' },
   { id: 11, name: 'Grocery',              icon: 'fa-basket-shopping' },
-  { id: 12, name: 'NGO & Charity',        icon: 'fa-hands-holding-heart' },
+  { id: 12, name: 'NGO & Charity',        icon: 'fa-hand-holding-heart' },
 ]
