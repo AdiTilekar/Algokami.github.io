@@ -1,22 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import FadeInView from '@/components/animations/FadeInView'
+import TiltCard from '@/components/animations/TiltCard'
+import PageHero from '@/components/layout/PageHero'
 
 export const metadata: Metadata = {
   title: 'About Us',
   description:
     'Learn about Algokami Tech Solutions and our founders Harsh Bhakare, Aditya Tilekar, and Sanket Ganje.',
-  keywords: [
-    'algokami',
-    'algo kami',
-    'harsh bhakare',
-    'aditya tilekar',
-    'sanket ganje',
-    'algokami founders',
-  ],
-  alternates: {
-    canonical: '/about',
-  },
+  keywords: ['algokami', 'algo kami', 'harsh bhakare', 'aditya tilekar', 'sanket ganje', 'algokami founders'],
+  alternates: { canonical: '/about' },
 }
 
 const founders = ['Harsh Bhakare', 'Aditya Tilekar', 'Sanket Ganje']
@@ -30,27 +23,30 @@ const aboutSchema = {
     '@type': 'Person',
     name,
     jobTitle: 'Founder',
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Algokami Tech Solutions',
-    },
+    worksFor: { '@type': 'Organization', name: 'Algokami Tech Solutions' },
   })),
 }
+
+const values = [
+  { icon: 'fa-lightbulb', title: 'Innovation', desc: 'We stay ahead of trends and embrace new technologies to deliver cutting-edge solutions.', theme: 'blue' },
+  { icon: 'fa-handshake', title: 'Integrity', desc: 'We build lasting relationships through transparency, honesty, and ethical practices.', theme: 'orange' },
+  { icon: 'fa-bullseye', title: 'Excellence', desc: 'We strive for excellence in every project, exceeding expectations with quality work.', theme: 'blue' },
+  { icon: 'fa-users', title: 'Collaboration', desc: 'We work closely with our clients as partners to achieve shared goals and success.', theme: 'orange' },
+]
 
 export default function AboutPage() {
   return (
     <main className="page-shell">
-      {/* Hero */}
-      <section className="page-hero">
-        <div className="container">
-          <span className="section-label">About Us</span>
-          <h1>Who We Are</h1>
-          <p>
-            We&apos;re a passionate team of digital experts dedicated to helping businesses
-            thrive in the modern digital landscape.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="About Us"
+        title="Who We Are"
+        subtitle="We're a passionate team of digital experts dedicated to helping businesses thrive in the modern digital landscape."
+        badges={[
+          { icon: 'fa-star', text: '96% Client Retention' },
+          { icon: 'fa-rocket', text: '120+ Releases Delivered' },
+          { icon: 'fa-users', text: 'Founded by 3 Experts' },
+        ]}
+      />
 
       {/* Mission Section */}
       <section className="service-detail-section">
@@ -75,29 +71,24 @@ export default function AboutPage() {
                 Algokami Tech Solutions is founded by Harsh Bhakare, Aditya Tilekar, and Sanket Ganje.
                 Their combined focus is brand visibility, product quality, and practical business growth.
               </p>
-              <p className="section-subtitle page-subtitle-center">
-                Founders: {founders.join(', ')}.
-              </p>
             </div>
           </FadeInView>
 
           <FadeInView delay={0.2}>
             <div className="stats-grid page-section-gap">
-              <div className="stats-card">
-                <div className="stats-value">500+</div>
-                <strong>Happy Clients</strong>
-                <p>Trusted by businesses worldwide</p>
-              </div>
-              <div className="stats-card">
-                <div className="stats-value">5+</div>
-                <strong>Years Experience</strong>
-                <p>Industry expertise you can rely on</p>
-              </div>
-              <div className="stats-card">
-                <div className="stats-value">50+</div>
-                <strong>Team Members</strong>
-                <p>Skilled professionals at your service</p>
-              </div>
+              {[
+                { value: '500+', label: 'Happy Clients', sub: 'Trusted by businesses worldwide' },
+                { value: '5+', label: 'Years Experience', sub: 'Industry expertise you can rely on' },
+                { value: '50+', label: 'Team Members', sub: 'Skilled professionals at your service' },
+              ].map((stat, i) => (
+                <TiltCard key={i} maxTilt={6}>
+                  <div className="stats-card">
+                    <div className="stats-value">{stat.value}</div>
+                    <strong>{stat.label}</strong>
+                    <p>{stat.sub}</p>
+                  </div>
+                </TiltCard>
+              ))}
             </div>
           </FadeInView>
         </div>
@@ -114,42 +105,19 @@ export default function AboutPage() {
           </FadeInView>
 
           <div className="value-grid">
-            <FadeInView delay={0.1}>
-              <div className="service-card">
-                <div className="service-icon icon-blue">
-                  <i className="fa-solid fa-lightbulb" />
-                </div>
-                <h3>Innovation</h3>
-                <p>We stay ahead of trends and embrace new technologies to deliver cutting-edge solutions.</p>
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.2}>
-              <div className="service-card">
-                <div className="service-icon icon-orange">
-                  <i className="fa-solid fa-handshake" />
-                </div>
-                <h3>Integrity</h3>
-                <p>We build lasting relationships through transparency, honesty, and ethical practices.</p>
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.3}>
-              <div className="service-card">
-                <div className="service-icon icon-blue">
-                  <i className="fa-solid fa-bullseye" />
-                </div>
-                <h3>Excellence</h3>
-                <p>We strive for excellence in every project, exceeding expectations with quality work.</p>
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.4}>
-              <div className="service-card">
-                <div className="service-icon icon-orange">
-                  <i className="fa-solid fa-users" />
-                </div>
-                <h3>Collaboration</h3>
-                <p>We work closely with our clients as partners to achieve shared goals and success.</p>
-              </div>
-            </FadeInView>
+            {values.map((v, i) => (
+              <FadeInView key={v.title} delay={i * 0.1}>
+                <TiltCard maxTilt={7}>
+                  <div className="service-card">
+                    <div className={`service-icon icon-${v.theme}`}>
+                      <i className={`fa-solid ${v.icon}`} />
+                    </div>
+                    <h3>{v.title}</h3>
+                    <p>{v.desc}</p>
+                  </div>
+                </TiltCard>
+              </FadeInView>
+            ))}
           </div>
         </div>
       </section>

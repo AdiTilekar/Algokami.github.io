@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import FadeInView from '@/components/animations/FadeInView'
+import TiltCard from '@/components/animations/TiltCard'
+import PageHero from '@/components/layout/PageHero'
 
 export const metadata: Metadata = {
   title: 'Healthcare Web Development',
@@ -19,13 +21,17 @@ const features = [
 export default function HealthcarePage() {
   return (
     <main className="service-detail-main">
-      <section className="page-hero">
-        <div className="container">
-          <span className="section-label">Web Development</span>
-          <h1>Healthcare Solutions</h1>
-          <p>Modern, secure, and user-friendly websites for healthcare providers, hospitals, and medical practices.</p>
-        </div>
-      </section>
+      <PageHero
+        label="Web Development"
+        title="Healthcare Solutions"
+        subtitle="Modern, secure, and user-friendly websites for healthcare providers, hospitals, and medical practices."
+        badges={[
+          { icon: 'fa-shield-halved', text: 'HIPAA Compliant' },
+          { icon: 'fa-mobile-screen', text: 'Mobile Responsive' },
+          { icon: 'fa-lock', text: 'Secure Patient Data' },
+        ]}
+        cta={{ href: '/get-quote', label: 'Get a Free Quote', icon: 'fa-arrow-right' }}
+      />
 
       <section className="service-detail-section">
         <div className="container">
@@ -33,19 +39,24 @@ export default function HealthcarePage() {
             <div className="section-header">
               <span className="section-label">What We Offer</span>
               <h2 className="section-title">Healthcare Web Development Features</h2>
+              <p className="section-subtitle">
+                End-to-end digital solutions tailored specifically for the healthcare sector.
+              </p>
             </div>
           </FadeInView>
 
           <div className="service-detail-grid">
             {features.map((feature, idx) => (
               <FadeInView key={idx} delay={idx * 0.1}>
-                <div className="service-card">
-                  <div className={`service-icon ${idx % 2 === 0 ? 'icon-blue' : 'icon-orange'}`}>
-                    <i className={`fa-solid ${feature.icon}`} />
+                <TiltCard maxTilt={7}>
+                  <div className="service-card">
+                    <div className={`service-icon ${idx % 2 === 0 ? 'icon-blue' : 'icon-orange'}`}>
+                      <i className={`fa-solid ${feature.icon}`} />
+                    </div>
+                    <h3>{feature.title}</h3>
+                    <p>{feature.desc}</p>
                   </div>
-                  <h3>{feature.title}</h3>
-                  <p>{feature.desc}</p>
-                </div>
+                </TiltCard>
               </FadeInView>
             ))}
           </div>
@@ -61,7 +72,7 @@ export default function HealthcarePage() {
               <Link href="/get-quote" className="btn btn-primary">
                 Get a Quote <i className="fa-solid fa-arrow-right" />
               </Link>
-              <Link href="/#contact" className="btn btn-outline">
+              <Link href="/contact" className="btn btn-outline-light">
                 Contact Us
               </Link>
             </div>

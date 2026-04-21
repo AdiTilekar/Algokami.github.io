@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import FadeInView from '@/components/animations/FadeInView'
+import TiltCard from '@/components/animations/TiltCard'
 
 interface SectorPackagesSectionProps {
   sector: string
@@ -71,29 +72,32 @@ export default function SectorPackagesSection({ sector }: SectorPackagesSectionP
         <div className="service-packages-grid">
           {plans.map((plan, index) => (
             <FadeInView key={plan.name} delay={index * 0.1}>
-              <article className={`service-package-card ${plan.featured ? 'featured' : ''}`}>
-                {plan.featured && <span className="service-package-badge">Most popular</span>}
-                <h3>{plan.name}</h3>
-                <p className="service-package-timeline">Ready in {plan.timeline}</p>
-                <p className="service-package-summary">{plan.summary}</p>
+              {/* Featured card gets a static float animation; others get tilt */}
+              <TiltCard maxTilt={plan.featured ? 4 : 9} floatOnly={false}>
+                <article className={`service-package-card ${plan.featured ? 'featured' : ''}`}>
+                  {plan.featured && <span className="service-package-badge">Most popular</span>}
+                  <h3>{plan.name}</h3>
+                  <p className="service-package-timeline">Ready in {plan.timeline}</p>
+                  <p className="service-package-summary">{plan.summary}</p>
 
-                <ul className="service-package-list">
-                  {plan.features.map((feature) => (
-                    <li key={feature}>
-                      <i className="fa-solid fa-check" aria-hidden="true" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="service-package-list">
+                    {plan.features.map((feature) => (
+                      <li key={feature}>
+                        <i className="fa-solid fa-check" aria-hidden="true" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                <p className="service-package-contact-note">
-                  Pricing discussed on WhatsApp after a quick scope call.
-                </p>
+                  <p className="service-package-contact-note">
+                    Pricing discussed on WhatsApp after a quick scope call.
+                  </p>
 
-                <Link href={`tel:${callNumber}`} className="btn btn-primary service-package-cta">
-                  Call Now <i className="fa-solid fa-phone" aria-hidden="true" />
-                </Link>
-              </article>
+                  <Link href={`tel:${callNumber}`} className="btn btn-primary service-package-cta">
+                    Call Now <i className="fa-solid fa-phone" aria-hidden="true" />
+                  </Link>
+                </article>
+              </TiltCard>
             </FadeInView>
           ))}
         </div>

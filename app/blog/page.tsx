@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import FadeInView from '@/components/animations/FadeInView'
+import TiltCard from '@/components/animations/TiltCard'
+import PageHero from '@/components/layout/PageHero'
 import { formatDate } from '@/lib/utils'
 
 export const metadata: Metadata = {
@@ -41,43 +43,40 @@ const blogPosts = [
 export default function BlogPage() {
   return (
     <main className="page-shell">
-      {/* Hero */}
-      <section className="page-hero">
-        <div className="container">
-          <span className="section-label">Blog</span>
-          <h1>Latest Insights & Updates</h1>
-          <p>
-            Expert knowledge on web development and business growth.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="Blog"
+        title="Latest Insights & Updates"
+        subtitle="Expert knowledge on web development, design, and business growth from the Algokami team."
+        badges={[
+          { icon: 'fa-pen-nib', text: 'SEO & Design insights' },
+          { icon: 'fa-code', text: 'Web Development tips' },
+          { icon: 'fa-chart-line', text: 'Business growth guides' },
+        ]}
+      />
 
-      {/* Blog Grid */}
       <section className="service-detail-section service-detail-section-alt">
         <div className="container">
           <div className="blog-grid">
             {blogPosts.map((post, i) => (
               <FadeInView key={post.slug} delay={i * 0.1}>
-                <Link href={`/blog/${post.slug}`} className="blog-card">
-                  <div className="blog-card-icon">
-                    <i className={`fa-solid ${post.icon}`} />
-                    <span className="blog-category">{post.category}</span>
-                  </div>
-                  <div className="blog-card-body">
-                    <div className="blog-card-meta">
-                      <span><i className="fa-regular fa-calendar" /> {formatDate(post.date)}</span>
+                <TiltCard maxTilt={7}>
+                  <Link href={`/blog/${post.slug}`} className="blog-card">
+                    <div className="blog-card-icon">
+                      <i className={`fa-solid ${post.icon}`} />
+                      <span className="blog-category">{post.category}</span>
                     </div>
-                    <h2 className="blog-card-title">
-                      {post.title}
-                    </h2>
-                    <p className="blog-card-excerpt">
-                      {post.excerpt}
-                    </p>
-                    <span className="blog-read-more">
-                      Read More <i className="fa-solid fa-arrow-right" />
-                    </span>
-                  </div>
-                </Link>
+                    <div className="blog-card-body">
+                      <div className="blog-card-meta">
+                        <span><i className="fa-regular fa-calendar" /> {formatDate(post.date)}</span>
+                      </div>
+                      <h2 className="blog-card-title">{post.title}</h2>
+                      <p className="blog-card-excerpt">{post.excerpt}</p>
+                      <span className="blog-read-more">
+                        Read More <i className="fa-solid fa-arrow-right" />
+                      </span>
+                    </div>
+                  </Link>
+                </TiltCard>
               </FadeInView>
             ))}
           </div>

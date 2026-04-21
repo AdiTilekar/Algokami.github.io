@@ -10,7 +10,7 @@ export default function ParticlesBackground() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   useEffect(() => {
-    const updateViewport = () => setIsMobile(window.innerWidth <= 768)
+    const updateViewport = () => setIsMobile(window.innerWidth <= 600)
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     const updateReducedMotion = () => setPrefersReducedMotion(mediaQuery.matches)
 
@@ -36,51 +36,77 @@ export default function ParticlesBackground() {
     () => ({
       fullScreen: { enable: false },
       background: { color: { value: 'transparent' } },
-      fpsLimit: isMobile ? 24 : 40,
+      fpsLimit: isMobile ? 24 : 45,
       pauseOnBlur: true,
       pauseOnOutsideViewport: true,
       particles: {
-        number: { value: isMobile ? 18 : 42, density: { enable: true } },
-        color: { value: '#ffffff' },
-        opacity: {
-          value: isMobile ? 0.22 : 0.35,
-          animation: { enable: !isMobile, speed: 0.3, startValue: 'random', minimumValue: 0.1 },
+        number: { value: isMobile ? 24 : 56, density: { enable: true } },
+        color: {
+          value: ['#1f8cff', '#00d4ff', '#ffffff', '#7c3aed'],
         },
-        size: { value: { min: 1, max: isMobile ? 2 : 3 } },
+        opacity: {
+          value: isMobile ? 0.25 : 0.45,
+          animation: {
+            enable: true,
+            speed: 0.5,
+            startValue: 'random',
+            minimumValue: 0.05,
+          },
+        },
+        size: { value: { min: 1, max: isMobile ? 2.5 : 4 } },
         links: {
           enable: !isMobile,
-          distance: isMobile ? 110 : 150,
-          color: '#ffffff',
-          opacity: isMobile ? 0.10 : 0.15,
+          distance: 150,
+          color: '#1f8cff',
+          opacity: 0.18,
           width: 1,
+          triangles: {
+            enable: false,
+          },
         },
         move: {
           enable: true,
-          speed: isMobile ? 0.5 : 0.8,
-          direction: 'none',
+          speed: isMobile ? 0.4 : 0.7,
+          direction: 'none' as const,
           random: true,
           straight: false,
-          outModes: { default: 'bounce' },
+          outModes: { default: 'bounce' as const },
+          attract: { enable: false },
+        },
+        // Depth-sorted layers — lighter particles float in foreground
+        zIndex: {
+          value: { min: 1, max: 5 },
+          opacityRate: 0.5,
+          sizeRate: 1,
+          velocityRate: 1,
         },
       },
       interactivity: {
-        detectsOn: 'window',
+        detectsOn: 'window' as const,
         events: {
-          onHover: { enable: false, mode: 'repulse' },
-          onClick: { enable: false, mode: 'push' },
+          onHover: {
+            enable: true,
+            mode: 'parallax',
+          },
+          onClick: { enable: false, mode: 'push' as const },
           resize: { enable: true },
         },
         modes: {
+          parallax: {
+            enable: true,
+            force: 18,
+            smooth: 10,
+          },
           repulse: { distance: 120, duration: 0.4 },
           push: { quantity: 3 },
         },
       },
-      detectRetina: false,
+      detectRetina: true,
     }),
     [isMobile]
   )
 
-  if (!init || isMobile || prefersReducedMotion) return null
+  if (!init || prefersReducedMotion) return null
 
   return <Particles id="tsparticles" options={options} />
 }

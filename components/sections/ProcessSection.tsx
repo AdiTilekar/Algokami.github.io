@@ -27,7 +27,8 @@ export default function ProcessSection() {
         </FadeInView>
 
         <FadeInView direction="right" delay={0.2}>
-          <div className="process-right">
+          {/* 3D track wrapper — the glowing lane connector */}
+          <div className="process-right process-3d-track">
             {steps.map((step, i) => (
               <div
                 key={step.number}

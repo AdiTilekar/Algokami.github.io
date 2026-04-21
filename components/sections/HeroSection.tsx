@@ -9,6 +9,11 @@ const ParticlesBackground = dynamic(
   { ssr: false }
 )
 
+const Scene3DHero = dynamic(
+  () => import('@/components/animations/Scene3DHero'),
+  { ssr: false }
+)
+
 export default function HeroSection() {
   return (
     <section id="home" className="hero-section">
@@ -30,7 +35,7 @@ export default function HeroSection() {
           </p>
           <div className="hero-buttons">
             <Link href="/plans" className="btn btn-primary hero-cta">
-              View Pricing & Packages <i className="fa-solid fa-arrow-right" />
+              View Pricing &amp; Packages <i className="fa-solid fa-arrow-right" />
             </Link>
             <Link href="/get-quote" className="btn btn-outline-light hero-cta">
               Get Free Proposal
@@ -60,57 +65,8 @@ export default function HeroSection() {
         </FadeInView>
 
         <FadeInView direction="right" delay={0.2} className="hero-right">
-          <div className="hero-visual">
-            <span className="hero-visual-glow hero-visual-glow-one" />
-            <span className="hero-visual-glow hero-visual-glow-two" />
-
-            <div className="hero-visual-chip-row">
-              <span className="hero-visual-chip">Next.js</span>
-              <span className="hero-visual-chip hero-visual-chip-alt">Conversion UX</span>
-              <span className="hero-visual-chip">Automation</span>
-            </div>
-
-            <div className="hero-visual-card hero-visual-main">
-              <span className="hero-visual-label">Delivery Engine</span>
-              <h3>From discovery to launch, one focused product team.</h3>
-              <p>
-                We combine product strategy, modern UI design, and clean development to launch
-                dependable web platforms and business apps.
-              </p>
-
-              <div className="hero-visual-metrics">
-                <div>
-                  <strong>2-Week</strong>
-                  <span>Sprint cadence</span>
-                </div>
-                <div>
-                  <strong>A+</strong>
-                  <span>Core web vitals target</span>
-                </div>
-                <div>
-                  <strong>1 Team</strong>
-                  <span>Design + Dev + QA</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="hero-visual-stack">
-              <div className="hero-visual-card hero-visual-mini">
-                <i className="fa-solid fa-code-branch" />
-                <div>
-                  <strong>Production-Ready Architecture</strong>
-                  <span>Built to scale with your business.</span>
-                </div>
-              </div>
-              <div className="hero-visual-card hero-visual-mini">
-                <i className="fa-solid fa-gauge-high" />
-                <div>
-                  <strong>Speed And SEO Optimized</strong>
-                  <span>Fast experiences that rank and convert.</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* 3D orbital ring scene replaces the static card stack */}
+          <Scene3DHero />
         </FadeInView>
       </div>
     </section>

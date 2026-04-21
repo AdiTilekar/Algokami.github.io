@@ -7,12 +7,37 @@
 ═══════════════════════════════════ */
 :root {
   /* Brand Colors */
-  --color-primary:        #0b1228;
-  --color-primary-dark:   #060c1f;
-  --color-primary-light:  #16244d;
+  --color-primary:        #060d20;
+  --color-primary-dark:   #03080f;
+  --color-primary-mid:    #0c1a3e;
+  --color-primary-light:  #132a6e;
   --color-accent:         #1f8cff;
   --color-accent-dark:    #0d72e2;
   --color-accent-light:   #6eb6ff;
+
+  /* 3D / Neon Accent System */
+  --color-cyan:           #00d4ff;
+  --color-cyan-dark:      #00a8cc;
+  --color-purple:         #7c3aed;
+  --color-purple-light:   #a855f7;
+  --color-orange:         #f5a623;
+  --color-orange-dark:    #e09415;
+
+  /* Glow Variables */
+  --glow-blue:            rgba(31, 140, 255, 0.50);
+  --glow-blue-soft:       rgba(31, 140, 255, 0.25);
+  --glow-cyan:            rgba(0, 212, 255, 0.40);
+  --glow-cyan-soft:       rgba(0, 212, 255, 0.18);
+  --glow-purple:          rgba(124, 58, 237, 0.40);
+  --glow-orange:          rgba(245, 166, 35, 0.45);
+
+  /* 3D / Perspective Variables */
+  --perspective-base:     1200px;
+  --perspective-card:     800px;
+  --tilt-max:             12deg;
+  --depth-1:              translateZ(8px);
+  --depth-2:              translateZ(16px);
+  --depth-3:              translateZ(28px);
 
   /* Backgrounds */
   --bg-white:             #ffffff;
@@ -50,6 +75,10 @@
   --shadow-md:            0 18px 40px rgba(7, 18, 46, 0.10);
   --shadow-lg:            0 28px 70px rgba(7, 18, 46, 0.14);
   --shadow-hover:         0 26px 56px rgba(20, 55, 118, 0.22);
+  --shadow-3d:            0 32px 80px rgba(6, 13, 32, 0.60), 0 8px 24px rgba(31, 140, 255, 0.12);
+  --shadow-glow-blue:     0 0 24px var(--glow-blue), 0 8px 32px rgba(6, 13, 32, 0.5);
+  --shadow-glow-cyan:     0 0 24px var(--glow-cyan), 0 8px 32px rgba(6, 13, 32, 0.5);
+  --shadow-glow-orange:   0 0 20px var(--glow-orange), 0 8px 24px rgba(6, 13, 32, 0.4);
 
   /* Transitions */
   --transition-fast:      0.2s ease;
@@ -75,6 +104,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* Prevent white flash on overscroll bounce */
+  background-color: var(--color-primary-dark);
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -160,8 +192,8 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-f
 .btn-primary:hover {
   background: var(--color-accent-dark);
   border-color: var(--color-accent-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(245,166,35,0.35);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 32px var(--glow-blue), 0 4px 12px rgba(0,0,0,0.3);
 }
 .btn-outline {
   background: transparent;
@@ -185,7 +217,7 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-f
 }
 
 /* ═══════════════════════════════════
-   KEYFRAMES
+   KEYFRAMES — 2D
 ═══════════════════════════════════ */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
@@ -202,6 +234,119 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-f
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
+}
+
+/* ═══════════════════════════════════
+   KEYFRAMES — 3D & NEON
+═══════════════════════════════════ */
+@keyframes float3d {
+  0%, 100% { transform: translateY(0px) rotateX(0deg) rotateZ(0deg); }
+  33%       { transform: translateY(-12px) rotateX(3deg) rotateZ(1deg); }
+  66%       { transform: translateY(-6px) rotateX(-2deg) rotateZ(-1deg); }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 16px var(--glow-blue-soft), 0 0 40px transparent; }
+  50%       { box-shadow: 0 0 32px var(--glow-blue), 0 0 64px var(--glow-cyan-soft); }
+}
+@keyframes glowPulseCyan {
+  0%, 100% { box-shadow: 0 0 16px var(--glow-cyan-soft), 0 0 40px transparent; }
+  50%       { box-shadow: 0 0 40px var(--glow-cyan), 0 0 80px var(--glow-blue-soft); }
+}
+@keyframes orbit {
+  from { transform: rotateZ(0deg) translateX(80px) rotateZ(0deg); }
+  to   { transform: rotateZ(360deg) translateX(80px) rotateZ(-360deg); }
+}
+@keyframes orbitReverse {
+  from { transform: rotateZ(0deg) translateX(110px) rotateZ(0deg); }
+  to   { transform: rotateZ(-360deg) translateX(110px) rotateZ(360deg); }
+}
+@keyframes ringRotate {
+  from { transform: rotateX(70deg) rotateZ(0deg); }
+  to   { transform: rotateX(70deg) rotateZ(360deg); }
+}
+@keyframes ringRotateReverse {
+  from { transform: rotateX(65deg) rotateZ(0deg); }
+  to   { transform: rotateX(65deg) rotateZ(-360deg); }
+}
+@keyframes holographic {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes scanLine {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to   { background-position: 0 60px; }
+}
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position: 200% center; }
+}
+@keyframes particleDrift {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50%  { transform: translate(20px, -30px) scale(1.2); opacity: 1; }
+  100% { transform: translate(-10px, -60px) scale(0.8); opacity: 0; }
+}
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(31, 140, 255, 0.3); }
+  50%       { border-color: rgba(0, 212, 255, 0.8); }
+}
+
+/* ═══════════════════════════════════
+   3D UTILITY CLASSES
+═══════════════════════════════════ */
+.perspective-wrap {
+  perspective: var(--perspective-base);
+  perspective-origin: center center;
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transform: perspective(var(--perspective-card)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.tilt-card:hover {
+  box-shadow: var(--shadow-3d);
+}
+
+.glow-blue {
+  box-shadow: var(--shadow-glow-blue);
+}
+
+.glow-cyan {
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+.neon-text {
+  text-shadow: 0 0 20px var(--glow-blue), 0 0 40px var(--glow-cyan-soft);
+}
+
+.holographic-border {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+.holographic-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-cyan), var(--color-purple), var(--color-accent));
+  background-size: 300% 300%;
+  animation: holographic 4s ease infinite;
+  z-index: -1;
 }
 
 /* ═══════════════════════════════════

@@ -1,4 +1,5 @@
 import FadeInView from '@/components/animations/FadeInView'
+import TiltCard from '@/components/animations/TiltCard'
 import { testimonials } from '@/data/testimonials'
 
 function getInitials(name: string) {
@@ -19,25 +20,27 @@ export default function TestimonialsSection() {
         <div className="testimonials-grid">
           {testimonials.map((t, i) => (
             <FadeInView key={t.id} delay={i * 0.1}>
-              <div className="testimonial-card">
-                <div className="testimonial-card-top">
-                  <div className="reviewer-row">
-                    <div className="reviewer-avatar-initials">
-                      {getInitials(t.name)}
+              <TiltCard maxTilt={7}>
+                <div className="testimonial-card">
+                  <div className="testimonial-card-top">
+                    <div className="reviewer-row">
+                      <div className="reviewer-avatar-initials">
+                        {getInitials(t.name)}
+                      </div>
+                      <div>
+                        <strong className="reviewer-name">{t.name}</strong>
+                        <span className="reviewer-role">{t.role}</span>
+                      </div>
                     </div>
-                    <div>
-                      <strong className="reviewer-name">{t.name}</strong>
-                      <span className="reviewer-role">{t.role}</span>
+                    <div className="testimonial-rating" aria-label={`${t.rating} out of 5 stars`}>
+                      <span className="stars">{'★'.repeat(t.rating)}</span>
+                      <span className="rating-score">{t.rating}.0</span>
                     </div>
                   </div>
-                  <div className="testimonial-rating" aria-label={`${t.rating} out of 5 stars`}>
-                    <span className="stars">{'★'.repeat(t.rating)}</span>
-                    <span className="rating-score">{t.rating}.0</span>
-                  </div>
+                  <div className="quote-mark">&ldquo;</div>
+                  <p className="review-text">{t.review}</p>
                 </div>
-                <div className="quote-mark">&ldquo;</div>
-                <p className="review-text">{t.review}</p>
-              </div>
+              </TiltCard>
             </FadeInView>
           ))}
         </div>
