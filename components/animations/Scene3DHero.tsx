@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useCallback } from 'react'
+import { useRef, useCallback, useEffect, useState } from 'react'
 
 interface Scene3DHeroProps {
   /** extra class names to merge */
@@ -14,12 +14,28 @@ interface Scene3DHeroProps {
  *   - Floating satellite orbs
  *   - Animated scan line
  * Zero canvas / Zero WebGL — runs on all browsers.
+ * 
+ * On touch devices, mouse tracking is disabled to prevent jank.
  */
 export default function Scene3DHero({ className = '' }: Scene3DHeroProps) {
   const sceneRef = useRef<HTMLDivElement>(null)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
+
+  // Detect touch device on mount
+  useEffect(() => {
+    const hasTouchScreen = () => {
+      if (typeof window === 'undefined') return false
+      return (
+        (typeof window !== 'undefined' && window.matchMedia('(pointer:coarse)').matches) ||
+        ('ontouchstart' in window) ||
+        (navigator.maxTouchPoints > 0)
+      )
+    }
+    setIsTouchDevice(hasTouchScreen())
+  }, [])
 
   const onMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!sceneRef.current) return
+    if (!sceneRef.current || isTouchDevice) return
     const rect = sceneRef.current.getBoundingClientRect()
     const cx = rect.left + rect.width / 2
     const cy = rect.top + rect.height / 2
@@ -27,13 +43,13 @@ export default function Scene3DHero({ className = '' }: Scene3DHeroProps) {
     const dy = (e.clientY - cy) / (rect.height / 2)
     sceneRef.current.style.setProperty('--scene-rx', `${(-dy * 8).toFixed(2)}deg`)
     sceneRef.current.style.setProperty('--scene-ry', `${(dx * 12).toFixed(2)}deg`)
-  }, [])
+  }, [isTouchDevice])
 
   const onMouseLeave = useCallback(() => {
-    if (!sceneRef.current) return
+    if (!sceneRef.current || isTouchDevice) return
     sceneRef.current.style.setProperty('--scene-rx', '-4deg')
     sceneRef.current.style.setProperty('--scene-ry', '-8deg')
-  }, [])
+  }, [isTouchDevice])
 
   return (
     <div

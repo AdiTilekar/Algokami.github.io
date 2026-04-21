@@ -422,3 +422,68 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-f
   border-radius: var(--radius-md);
   margin: 1.5em 0;
 }
+
+/* ═══════════════════════════════════
+   MOBILE OPTIMIZATIONS
+═══════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Reduce animation intensity on mobile for better performance */
+  .scene3d-ring-1,
+  .scene3d-ring-2,
+  .scene3d-ring-3 {
+    animation-duration: 12s !important;
+  }
+
+  .scene3d-orb-track-1,
+  .scene3d-orb-track-2,
+  .scene3d-orb-track-3 {
+    animation-duration: 12s !important;
+  }
+
+  .scene3d-scan {
+    animation-duration: 6s !important;
+  }
+
+  .scene3d-core-inner {
+    animation-duration: 4s !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further reduce animation load on tiny screens */
+  .scene3d-ring-1,
+  .scene3d-ring-2,
+  .scene3d-ring-3 {
+    animation-duration: 14s !important;
+  }
+
+  .scene3d-orb-track-1,
+  .scene3d-orb-track-2,
+  .scene3d-orb-track-3 {
+    animation-duration: 14s !important;
+  }
+
+  .scene3d-scan {
+    animation-duration: 8s !important;
+  }
+
+  .scene3d-core-inner {
+    animation-duration: 5s !important;
+  }
+
+  /* Reduce glow effects on very small screens for performance */
+  .scene3d-ring-1,
+  .scene3d-ring-2,
+  .scene3d-ring-3 {
+    box-shadow: 0 0 8px rgba(31,140,255,0.3) !important;
+  }
+
+  .scene3d-core-inner {
+    box-shadow: 0 0 20px rgba(0,212,255,0.4), 0 0 40px rgba(31,140,255,0.2) !important;
+  }
+
+  .scene3d-orb {
+    width: 10px;
+    height: 10px;
+  }
+}
