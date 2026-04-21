@@ -301,7 +301,7 @@
 }
 .hamburger span {
   display: block; width: 24px; height: 2px;
-  background: var(--text-dark); border-radius: 2px;
+  background: rgba(255, 255, 255, 0.85); border-radius: 2px;
   transition: all var(--transition-base);
 }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -2441,12 +2441,7 @@
    RESPONSIVE
 ═══════════════════════════════════ */
 @media (max-width: 1024px) {
-  .navbar {
-    background: rgba(255, 255, 255, 0.96);
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-  }
-
+  /* Keep the dark glassmorphism navbar — do NOT override to white */
   .hero-visual-chip,
   .hero-visual-card,
   .hero-stats-card,
@@ -2570,6 +2565,7 @@
   .brand-lockup {
     min-width: 0;
     transform: translateY(0);
+    overflow: visible;
   }
   .brand-logo-image {
     width: 34px;
@@ -2583,7 +2579,9 @@
     font-size: 0.58rem;
     letter-spacing: 0.12em;
     white-space: nowrap;
+    color: rgba(255, 255, 255, 0.55);
   }
+  /* Mobile dropdown — dark theme to match the dark mobile menu */
   .dropdown-menu {
     position: static;
     transform: none;
@@ -2591,8 +2589,8 @@
     width: 100%;
     max-width: 100%;
     box-shadow: none;
-    border: 1px solid rgba(74, 154, 243, 0.16);
-    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid rgba(0, 212, 255, 0.18);
+    background: rgba(6, 13, 32, 0.85);
     border-radius: 12px;
     backdrop-filter: blur(8px);
     grid-template-columns: 1fr;
@@ -2603,12 +2601,17 @@
     border-radius: 10px;
     padding: 11px 12px;
     font-size: 13px;
-    background: rgba(255, 255, 255, 0.78);
-    border: 1px solid rgba(74, 154, 243, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.85);
     min-height: 44px;
   }
+  .dropdown-menu a:hover {
+    background: rgba(0, 212, 255, 0.12);
+    color: var(--color-cyan);
+  }
   .dropdown-menu a i {
-    color: var(--color-accent);
+    color: var(--color-accent-light);
   }
   .dropdown-menu.open { transform: none; }
   .hero-section    { min-height: auto; padding-top: 64px; }

@@ -8,62 +8,87 @@ interface Scene3DHeroProps {
 
 /**
  * Scene3DHero — a purely CSS/DOM 3D scene for the hero right column.
- * Uses mouse-tracking via CSS custom properties + CSS animations for:
+ * Uses mouse-tracking AND touch-tracking via CSS custom properties + CSS animations for:
  *   - Perspective-tilting card panel
  *   - Glowing orbital rings (CSS @keyframes)
  *   - Floating satellite orbs
  *   - Animated scan line
  * Zero canvas / Zero WebGL — runs on all browsers.
- * 
- * On touch devices, mouse tracking is disabled to prevent jank.
+ *
+ * Touch support: drag finger to tilt the 3D scene on mobile.
  */
 export default function Scene3DHero({ className = '' }: Scene3DHeroProps) {
-  const sceneRef = useRef<HTMLDivElement>(null)
-  const [isTouchDevice, setIsTouchDevice] = useState(false)
+  const sceneRef  = useRef<HTMLDivElement>(null)
+  const outerRef  = useRef<HTMLDivElement>(null)
+  const touchOrigin = useRef<{ x: number; y: number } | null>(null)
 
-  // Detect touch device on mount
-  useEffect(() => {
-    const hasTouchScreen = () => {
-      if (typeof window === 'undefined') return false
-      return (
-        (typeof window !== 'undefined' && window.matchMedia('(pointer:coarse)').matches) ||
-        ('ontouchstart' in window) ||
-        (navigator.maxTouchPoints > 0)
-      )
-    }
-    setIsTouchDevice(hasTouchScreen())
+  // Default resting angles
+  const REST_RX = -4
+  const REST_RY = -8
+
+  const setAngles = useCallback((rx: number, ry: number) => {
+    if (!sceneRef.current) return
+    sceneRef.current.style.setProperty('--scene-rx', `${rx.toFixed(2)}deg`)
+    sceneRef.current.style.setProperty('--scene-ry', `${ry.toFixed(2)}deg`)
   }, [])
 
+  /* ── Mouse handlers ── */
   const onMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!sceneRef.current || isTouchDevice) return
+    if (!sceneRef.current) return
     const rect = sceneRef.current.getBoundingClientRect()
-    const cx = rect.left + rect.width / 2
-    const cy = rect.top + rect.height / 2
-    const dx = (e.clientX - cx) / (rect.width / 2)
+    const cx = rect.left + rect.width  / 2
+    const cy = rect.top  + rect.height / 2
+    const dx = (e.clientX - cx) / (rect.width  / 2)
     const dy = (e.clientY - cy) / (rect.height / 2)
-    sceneRef.current.style.setProperty('--scene-rx', `${(-dy * 8).toFixed(2)}deg`)
-    sceneRef.current.style.setProperty('--scene-ry', `${(dx * 12).toFixed(2)}deg`)
-  }, [isTouchDevice])
+    setAngles(-dy * 8, dx * 12)
+  }, [setAngles])
 
   const onMouseLeave = useCallback(() => {
-    if (!sceneRef.current || isTouchDevice) return
-    sceneRef.current.style.setProperty('--scene-rx', '-4deg')
-    sceneRef.current.style.setProperty('--scene-ry', '-8deg')
-  }, [isTouchDevice])
+    setAngles(REST_RX, REST_RY)
+  }, [setAngles])
+
+  /* ── Touch handlers ── */
+  const onTouchStart = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    const t = e.touches[0]
+    touchOrigin.current = { x: t.clientX, y: t.clientY }
+  }, [])
+
+  const onTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (!touchOrigin.current || !sceneRef.current) return
+    // Prevent page scroll while tilting
+    e.preventDefault()
+    const t     = e.touches[0]
+    const dx    = (t.clientX - touchOrigin.current.x) / 60   // normalise sensitivity
+    const dy    = (t.clientY - touchOrigin.current.y) / 60
+    const rx    = Math.max(-14, Math.min(14, REST_RX + (-dy * 14)))
+    const ry    = Math.max(-16, Math.min(16, REST_RY + ( dx * 16)))
+    setAngles(rx, ry)
+  }, [setAngles])
+
+  const onTouchEnd = useCallback(() => {
+    touchOrigin.current = null
+    setAngles(REST_RX, REST_RY)
+  }, [setAngles])
 
   return (
     <div
+      ref={outerRef}
       className={`scene3d-outer ${className}`}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      onTouchCancel={onTouchEnd}
       aria-hidden="true"
+      style={{ touchAction: 'none', userSelect: 'none' }}
     >
       {/* Perspective container */}
       <div className="scene3d-perspective">
         <div
           ref={sceneRef}
           className="scene3d-stage"
-          style={{ '--scene-rx': '-4deg', '--scene-ry': '-8deg' } as React.CSSProperties}
+          style={{ '--scene-rx': `${REST_RX}deg`, '--scene-ry': `${REST_RY}deg` } as React.CSSProperties}
         >
           {/* Orbital ring 1 */}
           <div className="scene3d-ring scene3d-ring-1" />
