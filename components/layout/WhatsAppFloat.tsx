@@ -1,12 +1,12 @@
 import Link from 'next/link'
 
-const phone = '918857066841'
+const whatsappPhone = '919834119669'
 const message = encodeURIComponent('Hi Algokami, I want details about your website packages and pricing.')
 
 export default function WhatsAppFloat() {
   return (
     <Link
-      href={`https://wa.me/${phone}?text=${message}`}
+      href={`https://wa.me/${whatsappPhone}?text=${message}`}
       className="whatsapp-float"
       target="_blank"
       rel="noopener noreferrer"
