@@ -33,7 +33,7 @@ export default function Footer() {
               <span>Growth SEO</span>
             </div>
             <div className="social-links">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram" /></a>
+              <a href="https://www.instagram.com/algokami.tech/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram" /></a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f" /></a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in" /></a>
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i className="fa-brands fa-youtube" /></a>
@@ -67,9 +67,9 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Get In Touch</h4>
             <div className="footer-contact-items">
-              <a href="mailto:algokamitech@gmail.com" className="footer-contact-item">
+              <a href="mailto:algokami.tech@gmail.com" className="footer-contact-item">
                 <i className="fa-solid fa-envelope" />
-                <span>algokamitech@gmail.com</span>
+                <span>algokami.tech@gmail.com</span>
               </a>
               <a href="tel:8857066841" className="footer-contact-item">
                 <i className="fa-solid fa-phone" />

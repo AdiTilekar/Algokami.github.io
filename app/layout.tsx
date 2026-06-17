@@ -36,7 +36,7 @@ const organizationSchema = {
   logo: `${siteUrl}/images/logos/Algo%20Kami%20logo.webp`,
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'algokamitech@gmail.com',
+    email: 'algokami.tech@gmail.com',
     telephone: '+91-8857066841',
     contactType: 'customer support',
     areaServed: 'IN',

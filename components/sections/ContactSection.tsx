@@ -54,7 +54,7 @@ export default function ContactSection() {
               <div className="contact-icon"><i className="fa-solid fa-envelope" /></div>
               <div>
                 <strong>Email</strong>
-                <span>algokamitech@gmail.com</span>
+                <span>algokami.tech@gmail.com</span>
               </div>
             </div>
           </div>
