@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const whatsappPhone = '919834119669'
+const whatsappPhone = '919834255669'
 const message = encodeURIComponent('Hi Algokami, I want details about your website packages and pricing.')
 
 export default function WhatsAppFloat() {
