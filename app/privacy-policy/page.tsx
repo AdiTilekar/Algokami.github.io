@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Privacy Policy for Algokami Infotech Solutions Pvt. Ltd. - How we collect, use, and protect your data.',
+  description: 'Privacy Policy for Algokami Tech Solutions - How we collect, use, and protect your data.',
 }
 
 export default function PrivacyPolicyPage() {
@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
           <div className="prose">
             <h2>1. Introduction</h2>
             <p>
-              Algokami Infotech Solutions Pvt. Ltd. (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) respects your privacy and is committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website and tell you about your privacy rights.
+              Algokami Tech Solutions (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) respects your privacy and is committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website and tell you about your privacy rights.
             </p>
 
             <h2>2. Information We Collect</h2>

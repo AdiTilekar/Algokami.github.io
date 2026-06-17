@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Refund Policy',
-  description: 'Refund Policy for Algokami Infotech Solutions Pvt. Ltd. services.',
+  description: 'Refund Policy for Algokami Tech Solutions services.',
 }
 
 export default function RefundPolicyPage() {
@@ -20,7 +20,7 @@ export default function RefundPolicyPage() {
           <div className="prose">
             <h2>1. Overview</h2>
             <p>
-              At Algokami Infotech Solutions Pvt. Ltd., we strive to deliver high-quality services that meet our clients&apos; expectations. This refund policy outlines the conditions under which refunds may be issued.
+              At Algokami Tech Solutions, we strive to deliver high-quality services that meet our clients&apos; expectations. This refund policy outlines the conditions under which refunds may be issued.
             </p>
 
             <h2>2. Before Project Commencement</h2>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions',
-  description: 'Terms and Conditions for Algokami Infotech Solutions Pvt. Ltd. services.',
+  description: 'Terms and Conditions for Algokami Tech Solutions services.',
 }
 
 export default function TermsConditionsPage() {
@@ -25,7 +25,7 @@ export default function TermsConditionsPage() {
 
             <h2>2. Services</h2>
             <p>
-              Algokami Infotech Solutions Pvt. Ltd. provides website development, personalized website development, e-commerce solutions, and related web services. The specific scope of services will be outlined in individual project agreements.
+              Algokami Tech Solutions provides website development, personalized website development, e-commerce solutions, and related web services. The specific scope of services will be outlined in individual project agreements.
             </p>
 
             <h2>3. Intellectual Property</h2>

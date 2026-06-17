@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>© {year} <strong>Algokami Infotech Solutions Pvt. Ltd.</strong> All rights reserved.</p>
+          <p>© {year} <strong>Algokami Tech Solutions</strong> All rights reserved.</p>
           <div className="footer-bottom-links">
             <Link href="/privacy-policy">Privacy Policy</Link>
             <Link href="/terms-conditions">Terms & Conditions</Link>
