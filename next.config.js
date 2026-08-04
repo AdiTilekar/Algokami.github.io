@@ -5,6 +5,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/sitemap-0.xml',
+        destination: '/sitemap.xml',
+        permanent: true,
+      },
+      {
         source: '/pages/:path*',
         destination: '/:path*',
         permanent: true,
