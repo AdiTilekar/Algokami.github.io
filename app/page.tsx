@@ -12,23 +12,23 @@ import BlogSection from '@/components/sections/BlogSection'
 import CTABannerSection from '@/components/sections/CTABannerSection'
 
 export const metadata: Metadata = {
-  title: 'Algokami Tech Solutions — Affordable Website Pricing & Packages',
+  title: 'Algokami — Discovery-Led Web Engineering',
   description:
-    'Get transparent website pricing and packages built for fast launch and real business growth. Choose Starter, Growth, or Enterprise and start your project today.',
+    'Discovery-led web engineering with milestone delivery, scoped SOWs, and measurable implementation outcomes for growing teams.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Algokami Tech Solutions — Affordable Website Pricing & Packages',
+    title: 'Algokami — Discovery-Led Web Engineering',
     description:
-      'Get transparent website pricing and packages built for fast launch and real business growth. Choose Starter, Growth, or Enterprise and start your project today.',
+      'Discovery-led web engineering with milestone delivery, scoped SOWs, and measurable implementation outcomes for growing teams.',
     url: '/',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Algokami Tech Solutions — Affordable Website Pricing & Packages',
+    title: 'Algokami — Discovery-Led Web Engineering',
     description:
-      'Get transparent website pricing and packages built for fast launch and real business growth. Choose Starter, Growth, or Enterprise and start your project today.',
+      'Discovery-led web engineering with milestone delivery, scoped SOWs, and measurable implementation outcomes for growing teams.',
   },
 }
 

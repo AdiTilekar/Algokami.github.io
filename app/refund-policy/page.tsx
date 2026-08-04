@@ -11,13 +11,20 @@ export default function RefundPolicyPage() {
       <section className="page-hero">
         <div className="container">
           <h1>Refund Policy</h1>
-          <p>Last updated: April 2025</p>
+          <p>Last updated: August 2026</p>
         </div>
       </section>
 
       <section className="page-section-white">
         <div className="container page-content-narrow">
           <div className="prose">
+            <h2>Business Identity</h2>
+            <ul>
+              <li><strong>Operating Name:</strong> Algokami Tech Solutions</li>
+              <li><strong>Email:</strong> algokami.tech@gmail.com</li>
+              <li><strong>Phone:</strong> +91 88570 66841</li>
+            </ul>
+
             <h2>1. Overview</h2>
             <p>
               At Algokami Tech Solutions, we strive to deliver high-quality services that meet our clients&apos; expectations. This refund policy outlines the conditions under which refunds may be issued.
@@ -25,23 +32,25 @@ export default function RefundPolicyPage() {
 
             <h2>2. Before Project Commencement</h2>
             <p>
-              If you cancel your project before work has begun, you may be eligible for a full refund of any advance payment, minus a 10% administrative fee.
+              If you cancel your project before discovery or implementation work has begun, you may be
+              eligible for a refund of advance payment minus documented administrative or banking fees.
             </p>
 
             <h2>3. During Project Development</h2>
             <p>
-              Once work has commenced, refunds will be calculated based on the work completed:
+              Once work has commenced, any refundable amount is determined by completed milestones,
+              delivered artifacts, and accepted outputs under the signed proposal or SOW:
             </p>
             <ul>
-              <li><strong>0-25% completion:</strong> Up to 75% refund of total project value</li>
-              <li><strong>25-50% completion:</strong> Up to 50% refund of total project value</li>
-              <li><strong>50-75% completion:</strong> Up to 25% refund of total project value</li>
-              <li><strong>75%+ completion:</strong> No refund available</li>
+              <li>Discovery and consultation fees are non-refundable once workshops or analysis are delivered</li>
+              <li>Milestone payments already approved by the client are non-refundable</li>
+              <li>Unstarted milestones may be eligible for partial or full refund review</li>
             </ul>
 
             <h2>4. After Project Completion</h2>
             <p>
-              Once a project has been completed and delivered, no refunds will be issued. However, we offer a warranty period during which we will address any bugs or issues at no additional cost.
+              Once a project has been completed and accepted against agreed scope, refunds are generally
+              not available. We provide a defined support window for bug fixes under accepted deliverables.
             </p>
 
             <h2>5. Website Maintenance Services</h2>
@@ -55,12 +64,14 @@ export default function RefundPolicyPage() {
 
             <h2>6. How to Request a Refund</h2>
             <p>
-              To request a refund, please contact us at algokami.tech@gmail.com with your project details and reason for the refund request. We will review your request and respond within 5 business days.
+              To request a refund, contact algokami.tech@gmail.com with project details, invoice references,
+              and reason for request. We respond within 5 business days.
             </p>
 
             <h2>7. Refund Processing</h2>
             <p>
-              Approved refunds will be processed within 7-14 business days. Refunds will be issued to the original payment method when possible.
+              Approved refunds are processed within 7-14 business days and, where possible, sent to the
+              original payment method.
             </p>
 
             <h2>8. Exceptions</h2>

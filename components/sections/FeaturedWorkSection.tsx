@@ -10,7 +10,7 @@ export default function FeaturedWorkSection() {
             <span className="section-label">Our Work</span>
             <h2 className="section-title">Featured Client Projects</h2>
             <p className="section-subtitle">
-              Live websites we have delivered for real businesses.
+              Live websites we have delivered for real businesses. Each card links to a public build.
             </p>
           </div>
         </FadeInView>
@@ -34,6 +34,12 @@ export default function FeaturedWorkSection() {
             </FadeInView>
           ))}
         </div>
+
+        <FadeInView delay={0.2}>
+          <p className="section-subtitle" style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+            Need additional case references for due diligence? Request them via our contact form.
+          </p>
+        </FadeInView>
       </div>
     </section>
   )

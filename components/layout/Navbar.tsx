@@ -78,7 +78,7 @@ export default function Navbar() {
         <Link href="/" className="navbar-logo text-logo">
           <Image
             src="/images/logos/Algo%20Kami%20logo.webp"
-            alt="AlgoKami logo"
+            alt="Algokami logo"
             width={42}
             height={42}
             className="brand-logo-image"

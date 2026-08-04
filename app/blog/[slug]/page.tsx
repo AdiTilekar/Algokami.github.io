@@ -12,7 +12,7 @@ const blogPosts = [
     category: 'SEO',
     date: '2025-03-15',
     coverImage: '/images/blog/blog-1.webp',
-    author: 'Algokami Infotech',
+    author: 'Algokami Tech Solutions',
     content: `
       <h2>Introduction</h2>
       <p>Search engine optimization continues to evolve rapidly. As we move into 2025, staying ahead of the curve is more important than ever. Here are the top strategies that will help you dominate search rankings this year.</p>
@@ -43,7 +43,7 @@ const blogPosts = [
     category: 'Design',
     date: '2025-02-28',
     coverImage: '/images/blog/blog-2.webp',
-    author: 'Algokami Infotech',
+    author: 'Algokami Tech Solutions',
     content: `
       <h2>Introduction</h2>
       <p>Web design is constantly evolving, and 2025 brings exciting new trends that are transforming how we create digital experiences. Let's explore the most impactful design trends shaping the web this year.</p>
@@ -71,13 +71,13 @@ const blogPosts = [
     category: 'Web Development',
     date: '2025-02-10',
     coverImage: '/images/blog/blog-3.webp',
-    author: 'Algokami Infotech',
+    author: 'Algokami Tech Solutions',
     content: `
       <h2>Introduction</h2>
       <p>Personalized website development helps small and growing businesses stand out online without overspending. A tailored website can improve trust, generate better leads, and support long-term growth.</p>
       
       <h2>1. Start With Business-Specific Planning</h2>
-      <p>Before design begins, define your audience, goals, and conversion actions. A personalized site should reflect your services, pricing model, and customer journey, not a generic template.</p>
+      <p>Before design begins, define your audience, goals, and conversion actions. A personalized site should reflect your services, commercial model, and customer journey, not a generic template.</p>
       
       <h2>2. Build a Conversion-Focused Structure</h2>
       <p>Use clear section flow, strong calls to action, and trust elements like testimonials and project highlights. Visitors should quickly understand why they should choose your business.</p>
@@ -173,9 +173,9 @@ export default function BlogPostPage({ params }: Props) {
 
         <div className="blog-inline-cta">
           <h3>Need A Website Like This For Your Business?</h3>
-          <p>Compare our website packages and choose the plan that matches your budget and timeline.</p>
+          <p>Review the engagement models and choose the delivery approach that matches your scope and timeline.</p>
           <div className="cta-buttons blog-inline-cta-buttons">
-            <Link href="/plans" className="btn btn-primary">View Pricing & Packages</Link>
+            <Link href="/plans" className="btn btn-primary">View Engagement Models</Link>
             <Link href="/get-quote" className="btn btn-outline">Get Custom Proposal</Link>
           </div>
         </div>

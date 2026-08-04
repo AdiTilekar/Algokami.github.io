@@ -1,5 +1,8 @@
 'use client'
-import { useRef, useCallback, useEffect, useState } from 'react'
+import { useRef, useCallback } from 'react'
+
+const REST_RX = -4
+const REST_RY = -8
 
 interface Scene3DHeroProps {
   /** extra class names to merge */
@@ -21,10 +24,6 @@ export default function Scene3DHero({ className = '' }: Scene3DHeroProps) {
   const sceneRef  = useRef<HTMLDivElement>(null)
   const outerRef  = useRef<HTMLDivElement>(null)
   const touchOrigin = useRef<{ x: number; y: number } | null>(null)
-
-  // Default resting angles
-  const REST_RX = -4
-  const REST_RY = -8
 
   const setAngles = useCallback((rx: number, ry: number) => {
     if (!sceneRef.current) return
@@ -132,8 +131,8 @@ export default function Scene3DHero({ className = '' }: Scene3DHeroProps) {
           <span>Sprint cadence</span>
         </div>
         <div className="scene3d-metric">
-          <strong>A+</strong>
-          <span>Core Web Vitals</span>
+          <strong>Audit</strong>
+          <span>Lighthouse baseline</span>
         </div>
         <div className="scene3d-metric">
           <strong>1 Team</strong>

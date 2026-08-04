@@ -6,17 +6,17 @@ export default function CTABannerSection() {
     <section id="cta" className="cta-banner-section">
       <div className="container">
         <FadeInView>
-          <h2>Ready To Choose A Plan And Launch Your Website?</h2>
+          <h2>Need A Scope You Can Approve Internally With Confidence?</h2>
           <p>
-            Compare packages, lock your scope, and start building with a team focused on
-            fast delivery, quality, and measurable business outcomes.
+            Start with discovery, align technical assumptions, and receive a documented
+            SOW before development begins.
           </p>
           <div className="cta-buttons">
-            <Link href="/plans" className="btn btn-primary">
-              View Pricing & Packages <i className="fa-solid fa-arrow-right" />
+            <Link href="/get-quote" className="btn btn-primary">
+              Book Discovery Call <i className="fa-solid fa-calendar-check" />
             </Link>
-            <Link href="/get-quote" className="btn btn-white">
-              Get Custom Proposal <i className="fa-solid fa-file-signature" />
+            <Link href="/plans" className="btn btn-white">
+              Review Engagement Tracks <i className="fa-solid fa-layer-group" />
             </Link>
           </div>
         </FadeInView>

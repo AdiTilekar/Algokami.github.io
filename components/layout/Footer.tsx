@@ -13,7 +13,7 @@ export default function Footer() {
             <Link href="/" className="text-logo footer-logo">
               <Image
                 src="/images/logos/Algo%20Kami%20logo.webp"
-                alt="AlgoKami logo"
+                alt="Algokami logo"
                 width={46}
                 height={46}
                 className="brand-logo-image"
@@ -21,12 +21,12 @@ export default function Footer() {
               <span className="brand-lockup">
                 <span className="brand-name">
                   <span className="brand-algo">Algo</span>
-                  <span className="brand-kami">Kami</span>
+                  <span className="brand-kami">kami</span>
                 </span>
                 <span className="brand-subtitle">Tech Solutions</span>
               </span>
             </Link>
-            <p>Empowering businesses with modern web solutions for unprecedented growth and success in the digital world.</p>
+            <p>Algokami builds discovery-led websites and web apps for growing businesses.</p>
             <div className="footer-brand-pills">
               <span>Web Platforms</span>
               <span>Business Apps</span>
@@ -34,9 +34,18 @@ export default function Footer() {
             </div>
             <div className="social-links">
               <a href="https://www.instagram.com/algokami.tech/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram" /></a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f" /></a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in" /></a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i className="fa-brands fa-youtube" /></a>
+              <a href="mailto:algokami.tech@gmail.com" aria-label="Email"><i className="fa-solid fa-envelope" /></a>
+              <a href="tel:8857066841" aria-label="Phone"><i className="fa-solid fa-phone" /></a>
+            </div>
+            <div className="footer-contact-items" style={{ marginTop: '1rem' }}>
+              <div className="footer-contact-item">
+                <i className="fa-solid fa-building" />
+                <span>Operating name: Algokami Tech Solutions</span>
+              </div>
+              <div className="footer-contact-item">
+                <i className="fa-solid fa-id-card" />
+                <span>Registration and billing identity shared in proposal and invoice</span>
+              </div>
             </div>
           </div>
 

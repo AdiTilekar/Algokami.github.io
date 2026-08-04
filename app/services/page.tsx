@@ -69,7 +69,7 @@ export default function ServicesPage() {
         <div className="container">
           <FadeInView>
             <h2>Not Sure Which Service You Need?</h2>
-            <p>Book a free 20-minute consultation and we'll map out the right approach for your business.</p>
+            <p>Book a free 20-minute consultation and we&apos;ll map out the right approach for your business.</p>
             <div className="cta-buttons">
               <Link href="/get-quote" className="btn btn-primary">
                 Get Free Proposal <i className="fa-solid fa-arrow-right" />

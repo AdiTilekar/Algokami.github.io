@@ -12,8 +12,11 @@ export default function TestimonialsSection() {
       <div className="container">
         <FadeInView>
           <div className="section-header">
-            <span className="section-label">Testimonials</span>
-            <h2 className="section-title">What Our Clients Say</h2>
+            <span className="section-label">Client Feedback</span>
+            <h2 className="section-title">Feedback Shared Directly By Clients</h2>
+            <p className="section-subtitle">
+              These are direct client feedback excerpts. Public review-profile links are being consolidated.
+            </p>
           </div>
         </FadeInView>
 
@@ -32,10 +35,7 @@ export default function TestimonialsSection() {
                         <span className="reviewer-role">{t.role}</span>
                       </div>
                     </div>
-                    <div className="testimonial-rating" aria-label={`${t.rating} out of 5 stars`}>
-                      <span className="stars">{'★'.repeat(t.rating)}</span>
-                      <span className="rating-score">{t.rating}.0</span>
-                    </div>
+                    <span className="reviewer-role">Verified feedback shared with permission</span>
                   </div>
                   <div className="quote-mark">&ldquo;</div>
                   <p className="review-text">{t.review}</p>

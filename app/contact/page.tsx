@@ -17,7 +17,7 @@ export default function ContactPage() {
         badges={[
           { icon: 'fa-clock', text: 'Reply within 24 hours' },
           { icon: 'fa-headset', text: '24/7 Support mindset' },
-          { icon: 'fa-shield-check', text: 'Trusted by 500+ clients' },
+          { icon: 'fa-shield-check', text: 'Transparent communication commitments' },
         ]}
       />
 

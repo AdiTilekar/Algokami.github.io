@@ -12,7 +12,7 @@ const blogPosts = [
     category: 'SEO',
     date: '2025-03-15',
     icon: 'fa-magnifying-glass',
-    author: 'Algokami Infotech',
+    author: 'Algokami Tech Solutions',
   },
   {
     slug: 'web-design-trends',
@@ -21,7 +21,7 @@ const blogPosts = [
     category: 'Design',
     date: '2025-02-28',
     icon: 'fa-palette',
-    author: 'Algokami Infotech',
+    author: 'Algokami Tech Solutions',
   },
   {
     slug: 'digital-marketing-guide',
@@ -30,7 +30,7 @@ const blogPosts = [
     category: 'Marketing',
     date: '2025-02-10',
     icon: 'fa-bullhorn',
-    author: 'Algokami Infotech',
+    author: 'Algokami Tech Solutions',
   },
 ]
 

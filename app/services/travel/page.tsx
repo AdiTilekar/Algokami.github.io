@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 }
 
 const features = [
-  { icon: 'fa-route', title: 'Tour Package Booking', desc: 'Showcase tour packages with itineraries, pricing, and online booking.' },
+  { icon: 'fa-route', title: 'Tour Booking Experience', desc: 'Showcase tours with itineraries, availability, and online booking.' },
   { icon: 'fa-plane-departure', title: 'Flight & Hotel Search', desc: 'Integration with GDS systems for flight and hotel bookings.' },
   { icon: 'fa-map', title: 'Interactive Itineraries', desc: 'Day-by-day trip plans with maps and activity details.' },
   { icon: 'fa-camera', title: 'Destination Guides', desc: 'Rich content pages showcasing destinations with photos and tips.' },

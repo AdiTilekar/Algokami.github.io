@@ -57,6 +57,14 @@ export default function ContactSection() {
                 <span>algokami.tech@gmail.com</span>
               </div>
             </div>
+            <div className="contact-item">
+              <div className="contact-icon"><i className="fa-solid fa-building" /></div>
+              <div>
+                <strong>Business Identity</strong>
+                <span>Operating name: Algokami Tech Solutions</span>
+                <span>Registration and billing details shared in proposal/invoice.</span>
+              </div>
+            </div>
           </div>
         </FadeInView>
 

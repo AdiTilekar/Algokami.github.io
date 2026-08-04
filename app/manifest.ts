@@ -2,8 +2,8 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Algokami Tech Solutions',
-    short_name: 'AlgoKami',
+    name: 'Algokami',
+    short_name: 'Algokami',
     description:
       'Personalized and budget-friendly website development for startups, local businesses, and growing brands.',
     start_url: '/',

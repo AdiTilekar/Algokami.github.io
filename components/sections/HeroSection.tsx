@@ -21,8 +21,8 @@ export default function HeroSection() {
 
       <div className="hero-content container">
         <FadeInView direction="left" className="hero-left">
-          <span className="badge hero-badge">Tailored Website Packages Built For Growth</span>
-          <h1 className="hero-title">High-Converting Websites Built Fast, Within Budget</h1>
+          <span className="badge hero-badge">Product-Minded Web Engineering For Business Teams</span>
+          <h1 className="hero-title">Scope Clearly. Build Confidently. Launch What You Can Defend.</h1>
           <p className="hero-subtitle">
             Trusted execution for{' '}
             <TypewriterText
@@ -30,36 +30,36 @@ export default function HeroSection() {
             />
           </p>
           <p className="hero-description">
-            Choose a plan, launch quickly, and start converting visitors into leads.
-            Our pricing is transparent, delivery is milestone-based, and support stays with you post-launch.
+            We begin with a discovery call, define assumptions in writing, and deliver through milestone-based sprints.
+            Performance and SEO work is tied to baseline audits, agreed targets, and release evidence.
           </p>
           <div className="hero-buttons">
-            <Link href="/plans" className="btn btn-primary hero-cta">
-              View Pricing &amp; Packages <i className="fa-solid fa-arrow-right" />
+            <Link href="/get-quote" className="btn btn-primary hero-cta">
+              Book Discovery Call <i className="fa-solid fa-calendar-check" />
             </Link>
-            <Link href="/get-quote" className="btn btn-outline-light hero-cta">
-              Get Free Proposal
+            <Link href="/plans" className="btn btn-outline-light hero-cta">
+              See Engagement Models
             </Link>
           </div>
 
           <div className="hero-trust-strip">
-            <span><i className="fa-solid fa-shield-check" /> Transparent pricing</span>
-            <span><i className="fa-solid fa-rocket" /> Fast delivery milestones</span>
-            <span><i className="fa-solid fa-headset" /> Post-launch support included</span>
+            <span><i className="fa-solid fa-magnifying-glass-chart" /> Discovery workshop before estimate</span>
+            <span><i className="fa-solid fa-file-signature" /> SOW and milestone sign-off</span>
+            <span><i className="fa-solid fa-chart-column" /> Audit-backed optimization tasks</span>
           </div>
 
           <div className="hero-stats-card">
             <div className="stats-info">
-              <CountUp target={120} suffix="+" className="stats-number" />
-              <span className="stats-label">Releases Delivered</span>
+              <CountUp target={5} suffix=" days" className="stats-number" />
+              <span className="stats-label">Discovery To Draft SOW</span>
             </div>
             <div className="stats-info">
-              <CountUp target={96} suffix="%" className="stats-number" />
-              <span className="stats-label">Client Retention</span>
+              <CountUp target={7} suffix=" days" className="stats-number" />
+              <span className="stats-label">Typical Sprint Review Cycle</span>
             </div>
             <div className="stats-info">
-              <CountUp target={24} suffix="/7" className="stats-number" />
-              <span className="stats-label">Support Mindset</span>
+              <CountUp target={1} suffix=" day" className="stats-number" />
+              <span className="stats-label">Initial Support Response SLA</span>
             </div>
           </div>
         </FadeInView>

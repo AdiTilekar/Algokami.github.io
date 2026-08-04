@@ -14,6 +14,24 @@ export const metadata: Metadata = {
 
 const founders = ['Harsh Bhakare', 'Aditya Tilekar', 'Sanket Ganje']
 
+const leadership = [
+  {
+    name: 'Harsh Bhakare',
+    role: 'Co-Founder',
+    focus: 'Client strategy, delivery planning, and business outcomes.',
+  },
+  {
+    name: 'Aditya Tilekar',
+    role: 'Co-Founder',
+    focus: 'Product execution, technical architecture, and QA oversight.',
+  },
+  {
+    name: 'Sanket Ganje',
+    role: 'Co-Founder',
+    focus: 'Operations, communication, and post-launch support continuity.',
+  },
+]
+
 const aboutSchema = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
@@ -40,11 +58,11 @@ export default function AboutPage() {
       <PageHero
         label="About Us"
         title="Who We Are"
-        subtitle="We're a passionate team of digital experts dedicated to helping businesses thrive in the modern digital landscape."
+        subtitle="A founder-led web engineering team focused on clear scope, measurable execution, and long-term client trust."
         badges={[
-          { icon: 'fa-star', text: '96% Client Retention' },
-          { icon: 'fa-rocket', text: '120+ Releases Delivered' },
-          { icon: 'fa-users', text: 'Founded by 3 Experts' },
+          { icon: 'fa-users', text: 'Founder-led engagement model' },
+          { icon: 'fa-file-signature', text: 'SOW-based delivery process' },
+          { icon: 'fa-shield-check', text: 'Transparent support commitments' },
         ]}
       />
 
@@ -56,7 +74,7 @@ export default function AboutPage() {
               <span className="section-label">Our Mission</span>
               <h2 className="section-title">Empowering Brands Through Digital Excellence</h2>
               <p className="section-subtitle page-subtitle-center">
-                At Algokami Infotech Solutions, we believe every business deserves a powerful digital presence.
+                At Algokami Tech Solutions, we believe every business deserves a powerful digital presence.
                 Our mission is to transform ideas into impactful digital experiences that drive growth,
                 engagement, and success.
               </p>
@@ -76,19 +94,26 @@ export default function AboutPage() {
 
           <FadeInView delay={0.2}>
             <div className="stats-grid page-section-gap">
-              {[
-                { value: '500+', label: 'Happy Clients', sub: 'Trusted by businesses worldwide' },
-                { value: '5+', label: 'Years Experience', sub: 'Industry expertise you can rely on' },
-                { value: '50+', label: 'Team Members', sub: 'Skilled professionals at your service' },
-              ].map((stat, i) => (
+              {leadership.map((member, i) => (
                 <TiltCard key={i} maxTilt={6}>
                   <div className="stats-card">
-                    <div className="stats-value">{stat.value}</div>
-                    <strong>{stat.label}</strong>
-                    <p>{stat.sub}</p>
+                    <div className="stats-value">{member.name.split(' ').map((n) => n[0]).join('')}</div>
+                    <strong>{member.name}</strong>
+                    <p><strong>{member.role}</strong> - {member.focus}</p>
                   </div>
                 </TiltCard>
               ))}
+            </div>
+          </FadeInView>
+
+          <FadeInView delay={0.25}>
+            <div className="page-content-narrow page-center page-section-gap">
+              <span className="section-label">Business Identity</span>
+              <h2 className="section-title">Verifiable Company Information</h2>
+              <p className="section-subtitle page-subtitle-center">
+                Operating name: Algokami Tech Solutions. Contact: algokami.tech@gmail.com, +91 88570 66841.
+                Registered billing details are shared in signed proposals and invoices.
+              </p>
             </div>
           </FadeInView>
         </div>

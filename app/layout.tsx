@@ -22,7 +22,8 @@ const manrope = Manrope({
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://algokami.tech'
-const siteName = 'Algokami Tech Solutions'
+const brandName = 'Algokami'
+const companyName = 'Algokami Tech Solutions'
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION
 const defaultDescription =
   'Budget-friendly website development company specializing in personalized website development, business websites, and custom web solutions that convert.'
@@ -31,9 +32,14 @@ const ogImage = '/images/og-preview.jpg'
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: siteName,
+  name: companyName,
+  alternateName: brandName,
   url: siteUrl,
   logo: `${siteUrl}/images/logos/Algo%20Kami%20logo.webp`,
+  brand: {
+    '@type': 'Brand',
+    name: brandName,
+  },
   contactPoint: {
     '@type': 'ContactPoint',
     email: 'algokami.tech@gmail.com',
@@ -47,7 +53,8 @@ const organizationSchema = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: siteName,
+  name: brandName,
+  alternateName: companyName,
   url: siteUrl,
   potentialAction: {
     '@type': 'SearchAction',
@@ -58,11 +65,11 @@ const websiteSchema = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  applicationName: siteName,
+  applicationName: brandName,
   referrer: 'origin-when-cross-origin',
   title: {
-    template: `%s | ${siteName}`,
-    default: `${siteName} — Personalized Website Development Company`,
+    template: `%s | ${brandName}`,
+    default: `${brandName} — Personalized Website Development Company`,
   },
   description: defaultDescription,
   keywords: [
@@ -75,9 +82,9 @@ export const metadata: Metadata = {
     'ecommerce website development',
     'Pune website developers',
   ],
-  authors: [{ name: siteName }],
-  creator: siteName,
-  publisher: siteName,
+  authors: [{ name: companyName }],
+  creator: companyName,
+  publisher: companyName,
   category: 'technology',
   robots: {
     index: true,
@@ -95,16 +102,16 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    siteName,
+    siteName: brandName,
     locale: 'en_IN',
     url: '/',
-    title: `${siteName} — Personalized Website Development Company`,
+    title: `${brandName} — Personalized Website Development Company`,
     description: defaultDescription,
-    images: [{ url: ogImage, width: 1200, height: 630, alt: siteName }],
+    images: [{ url: ogImage, width: 1200, height: 630, alt: brandName }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteName,
+    title: brandName,
     description: defaultDescription,
     images: [ogImage],
   },
