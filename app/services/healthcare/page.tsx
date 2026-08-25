@@ -18,6 +18,21 @@ const features = [
   { icon: 'fa-bell', title: 'Notifications & Reminders', desc: 'Automated appointment reminders and health notifications.' },
 ]
 
+const healthcareProjects = [
+  {
+    title: 'Dr. Smita Kapure Skin Clinic Website',
+    url: 'https://kapures.com',
+    desc: 'Professional dermatology & skin clinic website built for trust, treatment clarity, and mobile-first patient appointment enquiries.',
+    tags: ['Clinical Dermatology', 'Patient Booking', 'Mobile-First'],
+  },
+  {
+    title: 'Anandlok Ayurveda Hospital & Wellness Website',
+    url: 'https://www.anandlokayurveda.com/',
+    desc: 'Holistic Ayurvedic hospital portal showcasing treatment therapies, wellness packages, doctor consultations, and responsive enquiries.',
+    tags: ['Ayurvedic Healthcare', 'Therapy Catalog', 'Consultations'],
+  },
+]
+
 export default function HealthcarePage() {
   return (
     <main className="service-detail-main">
@@ -57,6 +72,41 @@ export default function HealthcarePage() {
                     <p>{feature.desc}</p>
                   </div>
                 </TiltCard>
+              </FadeInView>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Healthcare Client Projects */}
+      <section className="service-detail-section service-detail-section-alt">
+        <div className="container">
+          <FadeInView>
+            <div className="section-header">
+              <span className="section-label">Live Deployments</span>
+              <h2 className="section-title">Healthcare Websites We&apos;ve Built</h2>
+              <p className="section-subtitle">
+                Explore real, production healthcare web platforms architected and delivered by Algokami.
+              </p>
+            </div>
+          </FadeInView>
+
+          <div className="featured-work-grid">
+            {healthcareProjects.map((project, idx) => (
+              <FadeInView key={idx} delay={idx * 0.1}>
+                <article className="featured-work-card">
+                  <span className="featured-work-sector">Healthcare Case Study</span>
+                  <h3>{project.title}</h3>
+                  <p>{project.desc}</p>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="featured-work-link"
+                  >
+                    Visit Live Website <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true" />
+                  </a>
+                </article>
               </FadeInView>
             ))}
           </div>

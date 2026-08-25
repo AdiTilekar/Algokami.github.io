@@ -2,7 +2,7 @@ import type { NavLink } from '@/types'
 
 export const navLinks: NavLink[] = [
   {
-    label: 'Web Development',
+    label: 'Services',
     href: '/#services',
     children: [
       { label: 'Healthcare',           href: '/services/healthcare',           icon: 'fa-hospital' },
@@ -18,8 +18,9 @@ export const navLinks: NavLink[] = [
       { label: 'NGO & Non-Profit',     href: '/services/ngo',                  icon: 'fa-hand-holding-heart' },
     ],
   },
-  { label: 'About Us', href: '/about' },
-  { label: 'Engagement Models', href: '/plans' },
-  { label: 'Blog',     href: '/blog' },
-  { label: 'Contact',  href: '/#contact' },
+  { label: 'About',         href: '/about' },
+  { label: 'Design Styles', href: '/design-styles' },
+  { label: 'Plans',         href: '/plans' },
+  { label: 'Blog',          href: '/blog' },
+  { label: 'Contact',       href: '/#contact' },
 ]

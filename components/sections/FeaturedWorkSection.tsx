@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import FadeInView from '@/components/animations/FadeInView'
 import { featuredWork } from '@/data/featuredWork'
 
@@ -36,9 +37,15 @@ export default function FeaturedWorkSection() {
         </div>
 
         <FadeInView delay={0.2}>
-          <p className="section-subtitle" style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-            Need additional case references for due diligence? Request them via our contact form.
-          </p>
+          <div className="featured-work-note-wrap">
+            <p className="featured-work-note">
+              <i className="fa-solid fa-circle-info" aria-hidden="true" />
+              <span>
+                Need additional case references for due diligence?{' '}
+                <Link href="/#contact">Request them via our contact form.</Link>
+              </span>
+            </p>
+          </div>
         </FadeInView>
       </div>
     </section>

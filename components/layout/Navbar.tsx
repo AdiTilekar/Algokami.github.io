@@ -133,12 +133,23 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={`nav-link ${pathname === link.href ? 'active' : ''}`}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               )}
             </li>
           ))}
+
+          <li className="nav-item nav-mobile-cta-item">
+            <Link
+              href="/get-quote"
+              className="btn btn-primary nav-mobile-cta"
+              onClick={() => setMenuOpen(false)}
+            >
+              <i className="fa-solid fa-rocket" /> Start Project
+            </Link>
+          </li>
         </ul>
 
         <div className="navbar-actions">

@@ -17,6 +17,7 @@ module.exports = {
     { loc: '/about',               priority: 0.8 },
     { loc: '/blog',                priority: 0.7 },
     { loc: '/contact',             priority: 0.8 },
+    { loc: '/design-styles',       priority: 0.85 },
     { loc: '/enquiries',           priority: 0.7 },
     { loc: '/get-quote',           priority: 0.8 },
     { loc: '/privacy-policy',      priority: 0.6 },

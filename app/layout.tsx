@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer'
 import WhatsAppFloat from '@/components/layout/WhatsAppFloat'
 import '@/app/globals.css'
 import '@/styles/sections.css'
+import '@/styles/design-styles.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
 const spaceGrotesk = Space_Grotesk({
